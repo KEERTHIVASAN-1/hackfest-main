@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Listbox, Transition } from '@headlessui/react';
-import { Check, ChevronDown, Lock } from 'lucide-react';
+import { Check, ChevronDown, Lock, Eye, EyeOff } from 'lucide-react';
 import clsx from 'clsx';
 
 const ROLES = [
@@ -16,6 +16,7 @@ export default function Login() {
     const { login } = useAuth();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [selectedRole, setSelectedRole] = useState(ROLES[0]);
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -134,16 +135,27 @@ export default function Login() {
                             <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                                 Password
                             </label>
-                            <div className="mt-1">
+                            <div className="mt-1 relative">
                                 <input
                                     id="password"
                                     name="password"
-                                    type="password"
+                                    type={showPassword ? 'text' : 'password'}
                                     required
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm"
+                                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 pr-10 placeholder-gray-400 shadow-sm focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm"
                                 />
+                                <button
+                                    type="button"
+                                    className="absolute inset-y-0 right-0 flex items-center pr-3"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                >
+                                    {showPassword ? (
+                                        <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-500" aria-hidden="true" />
+                                    ) : (
+                                        <Eye className="h-5 w-5 text-gray-400 hover:text-gray-500" aria-hidden="true" />
+                                    )}
+                                </button>
                             </div>
                         </div>
 
