@@ -10,7 +10,7 @@ export const seedAdmin = async () => {
             // Create admin account
             const admin = await User.create({
                 username: 'admin',
-                password: 'admin3005',
+                password: 'admin123',
                 role: 'ADMIN',
                 name: 'System Administrator',
                 isFirstLogin: false
