@@ -8,15 +8,20 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#ffffff', // White
-          dark: '#f8fafc',    // Slate 50 (Very light gray for backgrounds)
+          DEFAULT: '#000000', // Premium Black
+          dark: '#0f0f0f',    // Rich Black
+          light: '#1a1a1a',   // Soft Black
         },
         secondary: {
-          DEFAULT: '#1e40af', // Blue 800
-          light: '#3b82f6',   // Blue 500
-          dark: '#1e3a8a',    // Blue 900
+          DEFAULT: '#d4af37', // Metallic Gold
+          light: '#f1c40f',   // Bright Gold
+          dark: '#aa8c2c',    // Dark Gold
         },
-        accent: '#e2e8f0',    // Slate 200 (Borders)
+        accent: '#333333',    // Dark Gray (Borders/Accents)
+        text: {
+            DEFAULT: '#ffffff',
+            muted: '#9ca3af'
+        }
       },
     },
   },

@@ -53,25 +53,25 @@ export default function Login() {
     return (
         <div className="min-h-screen bg-primary-dark flex flex-col justify-center py-12 sm:px-6 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
-                <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+                <h2 className="mt-6 text-center text-3xl font-extrabold text-secondary">
                     Sign in to your account
                 </h2>
-                <p className="mt-2 text-center text-sm text-gray-600">
+                <p className="mt-2 text-center text-sm text-text-muted">
                     Hackathon Management System
                 </p>
             </div>
 
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-                <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                <div className="bg-primary-light py-8 px-4 shadow sm:rounded-lg sm:px-10 border border-accent">
                     <form className="space-y-6" onSubmit={handleSubmit}>
                         <div>
-                            <label htmlFor="role" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="role" className="block text-sm font-medium text-secondary">
                                 Select Role
                             </label>
                             <div className="mt-1 relative">
                                 <Listbox value={selectedRole} onChange={setSelectedRole}>
                                     <div className="relative mt-1">
-                                        <Listbox.Button className="relative w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-secondary focus:outline-none focus:ring-1 focus:ring-secondary sm:text-sm">
+                                        <Listbox.Button className="relative w-full cursor-default rounded-md border border-accent bg-primary py-2 pl-3 pr-10 text-left shadow-sm focus:border-secondary focus:outline-none focus:ring-1 focus:ring-secondary sm:text-sm text-text">
                                             <span className="block truncate">{selectedRole.name}</span>
                                             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                                                 <ChevronDown className="h-5 w-5 text-gray-400" aria-hidden="true" />
@@ -83,12 +83,12 @@ export default function Login() {
                                             leaveFrom="opacity-100"
                                             leaveTo="opacity-0"
                                         >
-                                            <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                            <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-primary py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm border border-accent">
                                                 {ROLES.map((role, roleIdx) => (
                                                     <Listbox.Option
                                                         key={roleIdx}
                                                         className={({ active }) =>
-                                                            `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? 'bg-secondary-light/10 text-secondary-dark' : 'text-gray-900'
+                                                            `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? 'bg-secondary/10 text-secondary' : 'text-text'
                                                             }`
                                                         }
                                                         value={role}
@@ -115,7 +115,7 @@ export default function Login() {
                         </div>
 
                         <div>
-                            <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="username" className="block text-sm font-medium text-secondary">
                                 Username
                             </label>
                             <div className="mt-1">
@@ -126,13 +126,13 @@ export default function Login() {
                                     required
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
-                                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm"
+                                    className="block w-full appearance-none rounded-md border border-accent bg-primary px-3 py-2 placeholder-gray-500 text-text shadow-sm focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm"
                                 />
                             </div>
                         </div>
 
                         <div>
-                            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="password" className="block text-sm font-medium text-secondary">
                                 Password
                             </label>
                             <div className="mt-1 relative">
@@ -143,7 +143,7 @@ export default function Login() {
                                     required
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 pr-10 placeholder-gray-400 shadow-sm focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm"
+                                    className="block w-full appearance-none rounded-md border border-accent bg-primary px-3 py-2 pr-10 placeholder-gray-500 text-text shadow-sm focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm"
                                 />
                                 <button
                                     type="button"
@@ -151,19 +151,19 @@ export default function Login() {
                                     onClick={() => setShowPassword(!showPassword)}
                                 >
                                     {showPassword ? (
-                                        <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-500" aria-hidden="true" />
+                                        <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-300" aria-hidden="true" />
                                     ) : (
-                                        <Eye className="h-5 w-5 text-gray-400 hover:text-gray-500" aria-hidden="true" />
+                                        <Eye className="h-5 w-5 text-gray-400 hover:text-gray-300" aria-hidden="true" />
                                     )}
                                 </button>
                             </div>
                         </div>
 
                         {error && (
-                            <div className="rounded-md bg-red-50 p-4">
+                            <div className="rounded-md bg-red-900/20 border border-red-900 p-4">
                                 <div className="flex">
                                     <div className="ml-3">
-                                        <h3 className="text-sm font-medium text-red-800">{error}</h3>
+                                        <h3 className="text-sm font-medium text-red-400">{error}</h3>
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +173,7 @@ export default function Login() {
                             <button
                                 type="submit"
                                 disabled={isLoading}
-                                className="flex w-full justify-center rounded-md border border-transparent bg-secondary py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 disabled:opacity-50"
+                                className="flex w-full justify-center rounded-md border border-transparent bg-secondary py-2 px-4 text-sm font-medium text-black shadow-sm hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 disabled:opacity-50"
                             >
                                 {isLoading ? 'Signing in...' : (
                                     <>
