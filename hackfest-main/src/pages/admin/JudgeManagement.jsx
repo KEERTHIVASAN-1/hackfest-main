@@ -126,16 +126,18 @@ export default function JudgeManagement() {
     return (
         <div>
             <div className="sm:flex sm:items-center justify-between mb-6">
-                <h1 className="text-2xl font-bold text-gray-900">Judge Management</h1>
+                <h1 className="text-2xl font-bold text-white">Judge Management</h1>
                 <button
                     onClick={() => setModalOpen(true)}
-                    className="mt-3 sm:mt-0 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-secondary hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"
+                    className="mt-3 sm:mt-0 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-secondary hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"
                 >
                     <Plus className="mr-2 h-4 w-4" /> Register Judge
                 </button>
             </div>
 
-            <Table columns={columns} data={judges} keyField="_id" />
+            <div className="bg-black/40 backdrop-blur-md rounded-xl border border-gray-800 shadow-lg overflow-hidden">
+                <Table columns={columns} data={judges} keyField="_id" />
+            </div>
 
             {/* Register Judge Modal */}
             <Modal
@@ -227,12 +229,12 @@ export default function JudgeManagement() {
                 title="Delete Judge"
             >
                 <div className="space-y-4">
-                    <p className="text-gray-600">
-                        Are you sure you want to delete <strong>{judgeToDelete?.name}</strong>?
+                    <p className="text-gray-300">
+                        Are you sure you want to delete <strong className="text-white">{judgeToDelete?.name}</strong>?
                         This will also remove their login credentials.
                     </p>
-                    <p className="text-sm text-gray-500">
-                        Theme "<strong>{judgeToDelete?.assignedTheme?.name}</strong>" will become available for other judges.
+                    <p className="text-sm text-gray-400">
+                        Theme "<strong className="text-gray-300">{judgeToDelete?.assignedTheme?.name}</strong>" will become available for other judges.
                     </p>
                     <div className="flex gap-3 mt-6">
                         <button
@@ -240,13 +242,13 @@ export default function JudgeManagement() {
                                 setDeleteConfirmOpen(false);
                                 setJudgeToDelete(null);
                             }}
-                            className="flex-1 px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+                            className="flex-1 px-4 py-2 border border-gray-700 rounded-md text-gray-300 hover:bg-gray-800"
                         >
                             Cancel
                         </button>
                         <button
                             onClick={handleDeleteConfirm}
-                            className="flex-1 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
+                            className="flex-1 px-4 py-2 bg-red-600/80 text-white rounded-md hover:bg-red-600"
                         >
                             Delete Judge
                         </button>
@@ -261,25 +263,25 @@ export default function JudgeManagement() {
                 title="Judge Registered Successfully"
             >
                 <div>
-                    <div className="bg-green-50 p-4 rounded-md border border-green-200 mb-4">
-                        <p className="text-green-800 text-sm font-medium mb-2">
+                    <div className="bg-green-900/20 p-4 rounded-md border border-green-800 mb-4">
+                        <p className="text-green-400 text-sm font-medium mb-2">
                             Please save these credentials securely. They will not be shown again.
                         </p>
                         <div className="space-y-2 font-mono text-sm">
                             <div className="flex justify-between">
-                                <span className="text-gray-500">Username:</span>
-                                <span className="font-bold select-all">{successCreds?.username}</span>
+                                <span className="text-gray-400">Username:</span>
+                                <span className="font-bold text-gray-200 select-all">{successCreds?.username}</span>
                             </div>
                             <div className="flex justify-between">
-                                <span className="text-gray-500">Password (initial):</span>
-                                <span className="font-bold select-all">{successCreds?.password}</span>
+                                <span className="text-gray-400">Password (initial):</span>
+                                <span className="font-bold text-gray-200 select-all">{successCreds?.password}</span>
                             </div>
                             <p className="text-xs text-gray-500 mt-2">They must change password on first login.</p>
                         </div>
                     </div>
                     <button
                         onClick={() => setSuccessModalOpen(false)}
-                        className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-secondary text-base font-medium text-white hover:bg-secondary-dark sm:text-sm"
+                        className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-secondary text-base font-medium text-black hover:bg-secondary/90 sm:text-sm"
                     >
                         Close
                     </button>

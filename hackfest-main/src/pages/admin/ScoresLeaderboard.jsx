@@ -44,9 +44,9 @@ export default function ScoresLeaderboard() {
             key: 'rank',
             header: 'Rank',
             render: (row) => (
-                <span className={`inline-flex items-center justify-center h-8 w-8 rounded-full text-sm font-bold ${row.rank === 1 ? 'bg-yellow-100 text-yellow-800' :
-                        row.rank === 2 ? 'bg-gray-100 text-gray-800' :
-                            row.rank === 3 ? 'bg-orange-100 text-orange-800' : 'text-gray-500'
+                <span className={`inline-flex items-center justify-center h-8 w-8 rounded-full text-sm font-bold border ${row.rank === 1 ? 'bg-yellow-900/30 text-yellow-400 border-yellow-500/30' :
+                        row.rank === 2 ? 'bg-gray-700 text-gray-300 border-gray-500/30' :
+                            row.rank === 3 ? 'bg-orange-900/30 text-orange-400 border-orange-500/30' : 'text-gray-400 border-transparent'
                     }`}>
                     {row.rank}
                 </span>
@@ -79,16 +79,16 @@ export default function ScoresLeaderboard() {
     return (
         <div>
             <div className="mb-6">
-                <h1 className="text-2xl font-bold text-gray-900">Scores & Leaderboard</h1>
-                <div className="mt-2 text-sm text-red-600 bg-red-50 p-3 rounded-md border border-red-100 inline-flex items-center">
+                <h1 className="text-2xl font-bold text-white">Scores & Leaderboard</h1>
+                <div className="mt-2 text-sm text-red-400 bg-red-900/20 p-3 rounded-md border border-red-500/30 inline-flex items-center">
                     <AlertTriangle className="h-4 w-4 mr-2" />
                     STRICTLY CONFIDENTIAL. Do not show to participants.
                 </div>
             </div>
 
-            <div className="bg-white shadow rounded-lg overflow-hidden">
-                <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-                    <h3 className="text-lg font-medium text-gray-900 flex items-center">
+            <div className="bg-black/40 backdrop-blur-md border border-white/10 shadow rounded-lg overflow-hidden">
+                <div className="p-6 border-b border-white/10 flex items-center justify-between">
+                    <h3 className="text-lg font-medium text-white flex items-center">
                         <Trophy className="h-5 w-5 mr-2 text-yellow-500" />
                         Live Ranking
                     </h3>
@@ -96,7 +96,7 @@ export default function ScoresLeaderboard() {
                         type="button"
                         onClick={handleRefresh}
                         disabled={refreshing}
-                        className="inline-flex items-center px-3 py-1.5 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50"
+                        className="inline-flex items-center px-3 py-1.5 border border-white/10 rounded-md text-sm font-medium text-white bg-transparent hover:bg-white/5 disabled:opacity-50"
                     >
                         <RefreshCw className={`h-4 w-4 mr-1.5 ${refreshing ? 'animate-spin' : ''}`} />
                         {refreshing ? 'Refreshing...' : 'Refresh'}
@@ -105,12 +105,12 @@ export default function ScoresLeaderboard() {
                 <Table columns={columns} data={rankedData} keyField="teamId" />
             </div>
 
-            <div className="mt-8 bg-white shadow rounded-lg p-6">
-                <h3 className="text-lg font-medium text-gray-900 mb-4">Detailed Statistics</h3>
+            <div className="mt-8 bg-black/40 backdrop-blur-md border border-white/10 shadow rounded-lg p-6">
+                <h3 className="text-lg font-medium text-white mb-4">Detailed Statistics</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="p-4 bg-gray-50 rounded-md">
-                        <span className="text-gray-500 text-sm">Total Evaluations</span>
-                        <div className="text-2xl font-bold text-gray-900">{evaluations.length}</div>
+                    <div className="p-4 bg-white/5 rounded-md">
+                        <span className="text-gray-400 text-sm">Total Evaluations</span>
+                        <div className="text-2xl font-bold text-white">{evaluations.length}</div>
                     </div>
                     {/* Add more stats if needed */}
                 </div>
