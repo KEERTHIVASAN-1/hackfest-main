@@ -75,8 +75,8 @@ export default function RoundControl() {
                                         {round === 3 ? 'Final Round' : `Round ${round}`}
                                     </h3>
                                     <div className="mt-1">
-                                        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${isActive ? 'bg-green-100 text-green-800 border-green-200' :
-                                                isCompleted ? 'bg-blue-100 text-blue-800 border-blue-200' :
+                                        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold border ${isActive ? 'bg-secondary text-black border-secondary shadow-sm' :
+                                                isCompleted ? 'bg-gray-100 text-gray-800 border-gray-200' :
                                                     'bg-gray-100 text-gray-600 border-gray-200'
                                             }`}>
                                             {status}
@@ -89,7 +89,7 @@ export default function RoundControl() {
                                         <button
                                             onClick={() => updateRound(round, 'ACTIVE')}
                                             disabled={loading}
-                                            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none"
+                                            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-bold rounded-md shadow-sm text-black bg-secondary hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"
                                         >
                                             <Play className="mr-2 h-4 w-4" /> Start Round
                                         </button>

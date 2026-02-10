@@ -87,7 +87,7 @@ export default function TimelineManagement() {
             render: (row) => (
                 <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
           ${row.type === 'EVALUATION' ? 'bg-yellow-100 text-yellow-800 border border-yellow-200' :
-                        row.type === 'DEV' ? 'bg-blue-100 text-blue-800 border border-blue-200' :
+                        row.type === 'DEV' ? 'bg-purple-100 text-purple-800 border border-purple-200' :
                             'bg-gray-100 text-gray-800 border border-gray-200'}`}>
                     {row.type}
                 </span>
@@ -103,7 +103,7 @@ export default function TimelineManagement() {
                 <h1 className="text-2xl font-bold text-gray-900">Timeline Management</h1>
                 <button
                     onClick={() => openModal()}
-                    className="mt-3 sm:mt-0 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="mt-3 sm:mt-0 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-secondary hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"
                 >
                     <Plus className="mr-2 h-4 w-4" /> Add Slot
                 </button>
@@ -117,7 +117,7 @@ export default function TimelineManagement() {
                         <div className="flex space-x-2 justify-end">
                             <button
                                 onClick={() => openModal(row)}
-                                className="text-indigo-600 hover:text-indigo-900 font-medium"
+                                className="text-secondary hover:text-secondary-dark font-medium"
                             >
                                 <Edit size={18} />
                             </button>
@@ -145,7 +145,7 @@ export default function TimelineManagement() {
                             name="activity"
                             required
                             defaultValue={currentSlot?.activity}
-                            className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
                         />
                     </div>
 
@@ -157,7 +157,7 @@ export default function TimelineManagement() {
                                 name="from"
                                 required
                                 defaultValue={currentSlot?.from ? new Date(currentSlot.from).toISOString().slice(0, 16) : ''}
-                                className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
                             />
                         </div>
                         <div>
@@ -167,7 +167,7 @@ export default function TimelineManagement() {
                                 name="to"
                                 required
                                 defaultValue={currentSlot?.to ? new Date(currentSlot.to).toISOString().slice(0, 16) : ''}
-                                className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
                             />
                         </div>
                     </div>
@@ -178,7 +178,7 @@ export default function TimelineManagement() {
                             name="type"
                             required
                             defaultValue={currentSlot?.type || 'GENERAL'}
-                            className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                            className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
                         >
                             <option value="GENERAL">General</option>
                             <option value="DEV">Development</option>
@@ -192,7 +192,7 @@ export default function TimelineManagement() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm disabled:opacity-50"
+                            className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-secondary text-base font-medium text-black hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary sm:text-sm disabled:opacity-50"
                         >
                             {loading ? 'Saving...' : 'Save Activity'}
                         </button>

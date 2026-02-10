@@ -67,6 +67,27 @@ export const updateConfig = async (req, res) => {
     }
 };
 
+// @desc    Delete/Reset hackathon configuration
+// @route   DELETE /api/hackathon/config
+// @access  Private (Admin only)
+export const deleteConfig = async (req, res) => {
+    try {
+        await Hackathon.deleteMany({});
+        await Timeline.deleteMany({});
+        
+        res.json({
+            success: true,
+            message: 'Hackathon configuration and timeline deleted successfully'
+        });
+    } catch (error) {
+        console.error('Delete config error:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Server error deleting configuration'
+        });
+    }
+};
+
 // @desc    Get all timeline events
 // @route   GET /api/hackathon/timeline
 // @access  Private

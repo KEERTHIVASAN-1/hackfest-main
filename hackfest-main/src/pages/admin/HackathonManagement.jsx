@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHackathon } from '../../context/HackathonContext';
 import { hackathonApi } from '../../api/hackathonApi';
 import LoadingSpinner from '../../components/common/LoadingSpinner';
-import { Save } from 'lucide-react';
+import { Save, Trash2, AlertTriangle } from 'lucide-react';
 
 export default function HackathonManagement() {
     const { hackathon, loading } = useHackathon();
@@ -13,6 +13,7 @@ export default function HackathonManagement() {
         endDate: ''
     });
     const [isSaving, setIsSaving] = useState(false);
+    const [isDeleting, setIsDeleting] = useState(false);
     const [message, setMessage] = useState('');
 
     // Function to format Date to 'YYYY-MM-DDTHH:mm' for input type="datetime-local"
@@ -60,6 +61,24 @@ export default function HackathonManagement() {
             setMessage('Failed to save settings.');
         } finally {
             setIsSaving(false);
+        }
+    };
+
+    const handleDelete = async () => {
+        if (!window.confirm('CRITICAL WARNING: Are you sure you want to delete the entire hackathon configuration? This action cannot be undone and may reset all event data.')) {
+            return;
+        }
+        
+        setIsDeleting(true);
+        try {
+            await hackathonApi.deleteConfig();
+            setMessage('Hackathon configuration deleted. Refreshing...');
+            setTimeout(() => {
+                window.location.reload();
+            }, 1500);
+        } catch (err) {
+            setMessage('Failed to delete hackathon.');
+            setIsDeleting(false);
         }
     };
 
@@ -139,14 +158,26 @@ export default function HackathonManagement() {
                                 Note: Changing duration affects the valid range for timeline slots.
                             </span>
 
-                            <button
-                                type="submit"
-                                disabled={isSaving}
-                                className="inline-flex items-center px-6 py-3 border border-transparent rounded-lg shadow-sm text-sm font-bold text-black bg-secondary hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-secondary disabled:opacity-50 transition-all duration-200 transform hover:scale-[1.02]"
-                            >
-                                <Save className="mr-2 h-4 w-4" />
-                                {isSaving ? 'Saving...' : 'Save Configuration'}
-                            </button>
+                            <div className="flex space-x-4">
+                                <button
+                                    type="button"
+                                    onClick={handleDelete}
+                                    disabled={isSaving || isDeleting}
+                                    className="inline-flex items-center px-4 py-3 border border-red-300 rounded-lg shadow-sm text-sm font-bold text-red-700 bg-white hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-50 transition-all duration-200"
+                                >
+                                    <Trash2 className="mr-2 h-4 w-4" />
+                                    {isDeleting ? 'Deleting...' : 'Reset Event'}
+                                </button>
+
+                                <button
+                                    type="submit"
+                                    disabled={isSaving || isDeleting}
+                                    className="inline-flex items-center px-6 py-3 border border-transparent rounded-lg shadow-sm text-sm font-bold text-black bg-secondary hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-secondary disabled:opacity-50 transition-all duration-200 transform hover:scale-[1.02]"
+                                >
+                                    <Save className="mr-2 h-4 w-4" />
+                                    {isSaving ? 'Saving...' : 'Save Configuration'}
+                                </button>
+                            </div>
                         </div>
                         {message && (
                             <p className={`mt-4 text-sm text-right font-medium ${message.includes('success') ? 'text-green-600' : 'text-red-600'}`}>

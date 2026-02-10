@@ -81,7 +81,7 @@ export default function EvaluationMonitoring() {
                 </div>
                 <div className="bg-white border border-gray-200 p-6 shadow-sm rounded-lg">
                     <div className="text-sm font-medium text-gray-500">Evaluations Done</div>
-                    <div className="mt-1 text-3xl font-semibold text-blue-600">
+                    <div className="mt-1 text-3xl font-semibold text-secondary">
                         {monitorData.reduce((acc, curr) => acc + curr.currentRoundEvals, 0)}
                     </div>
                 </div>

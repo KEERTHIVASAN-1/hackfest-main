@@ -72,7 +72,7 @@ export default function ScoresLeaderboard() {
         {
             key: 'overallAvg',
             header: 'Overall (Avg of R1+R2+R3)',
-            render: (row) => <span className="font-bold text-indigo-600">{(row.overallAvg != null ? row.overallAvg : row.totalScore ?? 0).toFixed(2)}</span>
+            render: (row) => <span className="font-bold text-gray-900">{(row.overallAvg != null ? row.overallAvg : row.totalScore ?? 0).toFixed(2)}</span>
         }
     ];
 
@@ -88,8 +88,8 @@ export default function ScoresLeaderboard() {
 
             <div className="bg-white border border-gray-200 shadow-sm rounded-lg overflow-hidden">
                 <div className="p-6 border-b border-gray-200 flex items-center justify-between">
-                    <h3 className="text-lg font-medium text-gray-900 flex items-center">
-                        <Trophy className="h-5 w-5 mr-2 text-yellow-500" />
+                    <h3 className="text-lg font-bold text-gray-900 flex items-center">
+                        <Trophy className="h-5 w-5 mr-2 text-secondary" />
                         Live Ranking
                     </h3>
                     <button

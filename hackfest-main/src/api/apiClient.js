@@ -14,6 +14,8 @@ export const apiClient = {
         const token = localStorage.getItem('hackfest_token');
         if (token) {
             headers['Authorization'] = `Bearer ${token}`;
+        } else {
+            console.warn('No token found in localStorage');
         }
         return headers;
     },

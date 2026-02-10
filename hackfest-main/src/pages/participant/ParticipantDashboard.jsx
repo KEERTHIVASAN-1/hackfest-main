@@ -81,20 +81,36 @@ export default function ParticipantDashboard() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Team Info Card */}
-                <div className="bg-white shadow rounded-lg p-6 border-l-4 border-secondary">
-                    <h3 className="text-lg font-medium text-gray-900">Team Details</h3>
-                    <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
+                <div className="bg-white shadow-lg rounded-xl p-6 border border-secondary/30 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-2xl -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+                    
+                    <h3 className="text-lg font-bold text-gray-900 flex items-center relative z-10">
+                        <span className="bg-secondary/20 p-2 rounded-lg mr-3 text-secondary-dark">
+                            <CheckCircle className="h-5 w-5 text-black" />
+                        </span>
+                        Team Details
+                    </h3>
+                    <div className="mt-4 grid grid-cols-2 gap-4 text-sm relative z-10">
                         <div>
-                            <span className="text-gray-500 block">Team</span>
-                            <span className="font-bold">{teamStatus?.name || '—'}</span>
+                            <span className="text-gray-500 block uppercase text-xs font-semibold tracking-wider">Team</span>
+                            <span className="font-bold text-lg text-gray-900">{teamStatus?.name || '—'}</span>
                         </div>
                         <div>
-                            <span className="text-gray-500 block">Theme</span>
-                            <span className="font-bold">{teamStatus?.themeId?.name || '—'}</span>
+                            <span className="text-gray-500 block uppercase text-xs font-semibold tracking-wider">Theme</span>
+                            <span className="font-bold text-lg text-gray-900">{teamStatus?.themeId?.name || '—'}</span>
                         </div>
-                        <div>
-                            <span className="text-gray-500 block">Current Round</span>
-                            <span className="font-bold text-lg">Round {hackathon?.currentRound ?? '—'}</span>
+                        <div className="col-span-2 mt-2 pt-4 border-t border-gray-100">
+                            <span className="text-gray-500 block uppercase text-xs font-semibold tracking-wider">Current Round</span>
+                            <div className="flex items-center mt-1">
+                                <span className="font-extrabold text-2xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-yellow-400">
+                                    Round {hackathon?.currentRound ?? '—'}
+                                </span>
+                                {isRoundActive && (
+                                    <span className="ml-3 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-secondary text-black animate-pulse shadow-sm">
+                                        LIVE
+                                    </span>
+                                )}
+                            </div>
                         </div>
                     </div>
                     {/* Round-wise evaluation completed */}

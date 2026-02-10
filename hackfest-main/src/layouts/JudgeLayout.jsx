@@ -36,7 +36,7 @@ export default function JudgeLayout() {
                 "fixed inset-y-0 left-0 z-50 flex w-64 flex-col bg-white border-r border-gray-200 transition-transform duration-300 h-screen",
                 sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
             )}>
-                <div className="flex h-16 flex-shrink-0 items-center justify-between px-4 bg-secondary text-white">
+                <div className="flex h-16 flex-shrink-0 items-center justify-between px-4 bg-secondary text-white shadow-sm">
                     <span className="text-xl font-bold">Judge Panel</span>
                     <button
                         className="lg:hidden text-white"
@@ -55,13 +55,13 @@ export default function JudgeLayout() {
                                     key={item.name}
                                     to={item.href}
                                     className={clsx(
-                                        isActive ? 'bg-gray-100 text-secondary' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                                        isActive ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
                                         'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
                                     )}
                                 >
                                     <item.icon
                                         className={clsx(
-                                            isActive ? 'text-secondary' : 'text-gray-400 group-hover:text-gray-500',
+                                            isActive ? 'text-gray-900' : 'text-gray-400 group-hover:text-gray-500',
                                             'mr-3 flex-shrink-0 h-6 w-6'
                                         )}
                                         aria-hidden="true"

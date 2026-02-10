@@ -21,6 +21,12 @@ export const AuthProvider = ({ children }) => {
     const login = async (username, password, role) => {
         try {
             const response = await authApi.login(username, password, role);
+            
+            // Redundant backup: Ensure token is saved here too
+            if (response.success && response.token) {
+                localStorage.setItem('hackfest_token', response.token);
+            }
+
             setUser(response.user);
             setIsAuthenticated(true);
             localStorage.setItem('hackfest_user', JSON.stringify(response.user));

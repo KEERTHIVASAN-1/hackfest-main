@@ -20,13 +20,13 @@ export default function FinalRoundMonitor() {
                 </div>
             ) : (
                 <div className="space-y-6">
-                    <div className="bg-blue-50 border-l-4 border-blue-500 p-4">
+                    <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4">
                         <div className="flex">
                             <div className="flex-shrink-0">
-                                <AlertCircle className="h-5 w-5 text-blue-500" aria-hidden="true" />
+                                <AlertCircle className="h-5 w-5 text-yellow-500" aria-hidden="true" />
                             </div>
                             <div className="ml-3">
-                                <p className="text-sm text-blue-700">
+                                <p className="text-sm text-yellow-700">
                                     Teams are automatically assigned to judges.
                                     Each judge evaluates 10 teams. Own theme is excluded.
                                 </p>

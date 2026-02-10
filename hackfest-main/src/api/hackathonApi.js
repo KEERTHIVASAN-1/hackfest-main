@@ -11,6 +11,11 @@ export const hackathonApi = {
         return response.data;
     },
 
+    deleteConfig: async () => {
+        const response = await apiClient.delete('/hackathon/config');
+        return response;
+    },
+
     getTimeline: async () => {
         const response = await apiClient.get('/hackathon/timeline');
         // Backend returns parsed dates from JSON as strings, converting strings to Date objects might be handled in components 

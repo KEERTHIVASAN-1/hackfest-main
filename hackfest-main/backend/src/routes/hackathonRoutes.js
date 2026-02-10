@@ -2,6 +2,7 @@ import express from 'express';
 import {
     getConfig,
     updateConfig,
+    deleteConfig,
     getTimeline,
     addTimelineEvent,
     updateTimelineEvent,
@@ -16,6 +17,7 @@ const router = express.Router();
 // Config routes
 router.get('/config', authenticate, getConfig);
 router.put('/config', authenticate, authorize('ADMIN'), updateConfig);
+router.delete('/config', authenticate, authorize('ADMIN'), deleteConfig);
 
 // Timeline routes
 router.get('/timeline', authenticate, getTimeline);

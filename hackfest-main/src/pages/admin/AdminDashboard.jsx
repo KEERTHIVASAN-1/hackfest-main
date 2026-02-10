@@ -74,41 +74,56 @@ export default function AdminDashboard() {
 
                 {/* Current Status */}
                 <div>
-                    <div className="bg-white shadow-sm rounded-xl border border-gray-200">
-                        <div className="px-6 py-5 border-b border-gray-200">
-                            <h3 className="text-lg font-medium leading-6 text-gray-900">Current Status</h3>
+                    <div className="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
+                        <div className="px-6 py-5 border-b border-gray-200 bg-gray-50">
+                            <h3 className="text-lg font-bold leading-6 text-gray-900 flex items-center">
+                                <span className="relative flex h-3 w-3 mr-3">
+                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+                                  <span className="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
+                                </span>
+                                Live Status
+                            </h3>
                         </div>
-                        <div className="p-6">
-                            <div className="space-y-6">
+                        <div className="p-6 relative overflow-hidden">
+                            {/* Shining background effect */}
+                            <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-gradient-to-br from-secondary/20 to-transparent rounded-full blur-xl animate-pulse"></div>
+                            
+                            <div className="space-y-6 relative z-10">
                                 <div>
-                                    <p className="text-sm font-medium text-gray-500">Current Round</p>
-                                    <div className="mt-1 flex items-center">
-                                        <span className="text-2xl font-bold text-gray-900">
-                                            {hackathon?.currentRound ? `Round ${hackathon.currentRound}` : 'Not Started'}
+                                    <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">Current Activity</p>
+                                    <div className="mt-2 flex items-center">
+                                        <div className={`p-3 rounded-lg ${activeSlot ? 'bg-secondary text-black shadow-lg shadow-secondary/30 timeline-live-blink' : 'bg-gray-100 text-gray-500'}`}>
+                                            <Clock className="h-6 w-6" />
+                                        </div>
+                                        <div className="ml-4">
+                                            <h4 className="text-lg font-bold text-gray-900">
+                                                {activeSlot ? activeSlot.title : 'No Active Event'}
+                                            </h4>
+                                            <p className="text-sm text-gray-500">
+                                                {activeSlot ? 'In Progress' : 'Waiting for next event'}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="border-t border-gray-100 pt-4">
+                                    <p className="text-sm font-medium text-gray-500 uppercase tracking-wider">Current Round</p>
+                                    <div className="mt-2 flex items-center justify-between">
+                                        <span className="text-3xl font-extrabold text-gray-900">
+                                            {hackathon?.currentRound ? `Round ${hackathon.currentRound}` : '-'}
                                         </span>
                                         {hackathon?.currentRound && (
-                                            <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                                Active
+                                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-secondary text-black shadow-sm">
+                                                ACTIVE
                                             </span>
                                         )}
                                     </div>
-                                </div>
-                                <div>
-                                    <p className="text-sm font-medium text-gray-500">Active Teams</p>
-                                    <p className="mt-1 text-2xl font-bold text-gray-900">
-                                        {hackathon?.teams?.length || 0}
-                                    </p>
-                                </div>
-                                <div>
-                                    <p className="text-sm font-medium text-gray-500">Judges Online</p>
-                                    <p className="mt-1 text-2xl font-bold text-gray-900">
-                                        {hackathon?.judges?.length || 0}
-                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     );
