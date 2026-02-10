@@ -12,7 +12,7 @@ export default function AccessDenied() {
                 <div className="mt-6">
                     <Link
                         to="/"
-                        className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-secondary hover:bg-secondary-dark"
+                        className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-black bg-secondary hover:bg-secondary-dark"
                     >
                         Go back home
                     </Link>

@@ -46,8 +46,8 @@ export default function EvaluationMonitoring() {
             header: 'Readiness',
             render: (row) => (
                 row.currentRoundReady
-                    ? <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-900/30 text-green-400 border border-green-500/30"><CheckCircle className="w-3 h-3 mr-1" /> READY</span>
-                    : <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-yellow-900/30 text-yellow-400 border border-yellow-500/30"><Clock className="w-3 h-3 mr-1" /> Waiting</span>
+                    ? <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800 border border-green-200"><CheckCircle className="w-3 h-3 mr-1" /> READY</span>
+                    : <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-yellow-100 text-yellow-800 border border-yellow-200"><Clock className="w-3 h-3 mr-1" /> Waiting</span>
             )
         },
         {
@@ -55,8 +55,8 @@ export default function EvaluationMonitoring() {
             header: 'Evaluations',
             render: (row) => (
                 <div className="flex items-center">
-                    <span className="text-sm font-medium">{row.currentRoundEvals}</span>
-                    <span className="text-gray-400 text-xs ml-1">completed</span>
+                    <span className="text-sm font-medium text-gray-900">{row.currentRoundEvals}</span>
+                    <span className="text-gray-500 text-xs ml-1">completed</span>
                 </div>
             )
         }
@@ -64,32 +64,32 @@ export default function EvaluationMonitoring() {
 
     return (
         <div>
-            <h1 className="text-2xl font-bold text-white mb-6">
+            <h1 className="text-2xl font-bold text-gray-900 mb-6">
                 Evaluation Monitor (Round {currentRound})
             </h1>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="bg-black/40 backdrop-blur-md border border-white/10 p-6 shadow rounded-lg">
-                    <div className="text-sm font-medium text-gray-400">Total Teams</div>
-                    <div className="mt-1 text-3xl font-semibold text-white">{monitorData.length}</div>
+                <div className="bg-white border border-gray-200 p-6 shadow-sm rounded-lg">
+                    <div className="text-sm font-medium text-gray-500">Total Teams</div>
+                    <div className="mt-1 text-3xl font-semibold text-gray-900">{monitorData.length}</div>
                 </div>
-                <div className="bg-black/40 backdrop-blur-md border border-white/10 p-6 shadow rounded-lg">
-                    <div className="text-sm font-medium text-gray-400">Ready for Eval</div>
-                    <div className="mt-1 text-3xl font-semibold text-green-400">
+                <div className="bg-white border border-gray-200 p-6 shadow-sm rounded-lg">
+                    <div className="text-sm font-medium text-gray-500">Ready for Eval</div>
+                    <div className="mt-1 text-3xl font-semibold text-green-600">
                         {monitorData.filter(t => t.currentRoundReady).length}
                     </div>
                 </div>
-                <div className="bg-black/40 backdrop-blur-md border border-white/10 p-6 shadow rounded-lg">
-                    <div className="text-sm font-medium text-gray-400">Evaluations Done</div>
-                    <div className="mt-1 text-3xl font-semibold text-blue-400">
+                <div className="bg-white border border-gray-200 p-6 shadow-sm rounded-lg">
+                    <div className="text-sm font-medium text-gray-500">Evaluations Done</div>
+                    <div className="mt-1 text-3xl font-semibold text-blue-600">
                         {monitorData.reduce((acc, curr) => acc + curr.currentRoundEvals, 0)}
                     </div>
                 </div>
             </div>
 
-            <div className="bg-black/40 backdrop-blur-md border border-white/10 shadow rounded-lg overflow-hidden">
-                <div className="px-4 py-5 border-b border-white/10 sm:px-6">
-                    <h3 className="text-lg leading-6 font-medium text-white">
+            <div className="bg-white border border-gray-200 shadow-sm rounded-lg overflow-hidden">
+                <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
+                    <h3 className="text-lg leading-6 font-medium text-gray-900">
                         Team Progress
                     </h3>
                 </div>

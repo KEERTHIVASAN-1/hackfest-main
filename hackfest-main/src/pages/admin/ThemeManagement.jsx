@@ -74,25 +74,25 @@ export default function ThemeManagement() {
     return (
         <div>
             <div className="sm:flex sm:items-center justify-between mb-6">
-                <h1 className="text-2xl font-bold text-white">Theme Management</h1>
+                <h1 className="text-2xl font-bold text-gray-900">Theme Management</h1>
                 <button
                     onClick={() => openModal()}
-                    className="mt-3 sm:mt-0 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-secondary hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"
+                    className="mt-3 sm:mt-0 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                     <Plus className="mr-2 h-4 w-4" /> Add Theme
                 </button>
             </div>
 
-            <div className="bg-black/40 backdrop-blur-md rounded-xl border border-gray-800 shadow-lg overflow-hidden">
+            <div className="bg-white border border-gray-200 shadow-sm rounded-xl overflow-hidden">
                 <Table
                     columns={columns}
                     data={themes}
                     actions={(row) => (
                         <div className="flex space-x-2 justify-end">
-                            <button onClick={() => openModal(row)} className="text-secondary hover:text-secondary/80">
+                            <button onClick={() => openModal(row)} className="text-indigo-600 hover:text-indigo-900">
                                 <Edit size={18} />
                             </button>
-                            <button onClick={() => handleDelete(row.id)} className="text-red-500 hover:text-red-400">
+                            <button onClick={() => handleDelete(row.id)} className="text-red-600 hover:text-red-900">
                                 <Trash size={18} />
                             </button>
                         </div>
@@ -107,26 +107,26 @@ export default function ThemeManagement() {
             >
                 <form onSubmit={handleSave} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-300">Theme Name</label>
+                        <label className="block text-sm font-medium text-gray-700">Theme Name</label>
                         <input
                             name="name"
                             required
                             defaultValue={currentTheme?.name}
-                            className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
+                            className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-300">Max Teams</label>
+                        <label className="block text-sm font-medium text-gray-700">Max Teams</label>
                         <input
                             type="number"
                             name="maxTeams"
                             required
                             defaultValue={currentTheme?.maxTeams || 10}
-                            className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
+                            className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                         />
                     </div>
                     <div className="mt-5 sm:mt-6">
-                        <button type="submit" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-secondary text-base font-medium text-black hover:bg-secondary/90 sm:text-sm">
+                        <button type="submit" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 sm:text-sm">
                             Save Theme
                         </button>
                     </div>

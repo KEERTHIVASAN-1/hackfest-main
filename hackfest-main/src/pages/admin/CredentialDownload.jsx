@@ -141,24 +141,24 @@ export default function CredentialDownload() {
     return (
         <div className="space-y-8">
             <div>
-                <h1 className="text-2xl font-bold text-white mb-4">Credential Distribution</h1>
-                <p className="text-gray-400">Download and print credentials for teams and judges.</p>
+                <h1 className="text-2xl font-bold text-gray-900 mb-4">Credential Distribution</h1>
+                <p className="text-gray-500">Download and print credentials for teams and judges.</p>
             </div>
 
             {/* Teams Section */}
-            <div className="bg-black/40 backdrop-blur-md shadow-lg rounded-xl border border-gray-800 p-6">
+            <div className="bg-white shadow-sm rounded-xl border border-gray-200 p-6">
                 <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-lg font-medium text-white">Teams</h2>
+                    <h2 className="text-lg font-medium text-gray-900">Teams</h2>
                     <div className="space-x-2">
                         <button
                             onClick={() => handleExport('TEAMS')}
-                            className="inline-flex items-center px-3 py-1.5 border border-gray-700 shadow-sm text-xs font-medium rounded text-gray-300 bg-gray-800 hover:bg-gray-700 transition-colors"
+                            className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 transition-colors"
                         >
                             <Download className="mr-1 h-3 w-3" /> CSV
                         </button>
                         <button
                             onClick={() => handleExportPDF('TEAMS')}
-                            className="inline-flex items-center px-3 py-1.5 border border-gray-700 shadow-sm text-xs font-medium rounded text-gray-300 bg-gray-800 hover:bg-gray-700 transition-colors"
+                            className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 transition-colors"
                         >
                             <FileText className="mr-1 h-3 w-3" /> PDF
                         </button>
@@ -190,19 +190,19 @@ export default function CredentialDownload() {
             </div>
 
             {/* Judges Section */}
-            <div className="bg-black/40 backdrop-blur-md shadow-lg rounded-xl border border-gray-800 p-6">
+            <div className="bg-white shadow-sm rounded-xl border border-gray-200 p-6">
                 <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-lg font-medium text-white">Judges</h2>
+                    <h2 className="text-lg font-medium text-gray-900">Judges</h2>
                     <div className="space-x-2">
                         <button
                             onClick={() => handleExport('JUDGES')}
-                            className="inline-flex items-center px-3 py-1.5 border border-gray-700 shadow-sm text-xs font-medium rounded text-gray-300 bg-gray-800 hover:bg-gray-700 transition-colors"
+                            className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 transition-colors"
                         >
                             <Download className="mr-1 h-3 w-3" /> CSV
                         </button>
                         <button
                             onClick={() => handleExportPDF('JUDGES')}
-                            className="inline-flex items-center px-3 py-1.5 border border-gray-700 shadow-sm text-xs font-medium rounded text-gray-300 bg-gray-800 hover:bg-gray-700 transition-colors"
+                            className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 transition-colors"
                         >
                             <FileText className="mr-1 h-3 w-3" /> PDF
                         </button>

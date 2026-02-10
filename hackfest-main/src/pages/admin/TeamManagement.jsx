@@ -128,7 +128,7 @@ export default function TeamManagement() {
     return (
         <div>
             <div className="sm:flex sm:items-center justify-between mb-6">
-                <h1 className="text-2xl font-bold text-white">Team Management</h1>
+                <h1 className="text-2xl font-bold text-gray-900">Team Management</h1>
                 <button
                     onClick={() => setModalOpen(true)}
                     className="mt-3 sm:mt-0 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-secondary hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"
@@ -137,7 +137,7 @@ export default function TeamManagement() {
                 </button>
             </div>
 
-            <div className="bg-black/40 backdrop-blur-md rounded-xl border border-gray-800 shadow-lg overflow-hidden">
+            <div className="bg-white shadow rounded-xl border border-gray-200 overflow-hidden">
                 <Table columns={columns} data={teams} keyField="_id" />
             </div>
 
@@ -148,43 +148,43 @@ export default function TeamManagement() {
             >
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-300">Team Name</label>
+                        <label className="block text-sm font-medium text-gray-700">Team Name</label>
                         <input
                             required
                             value={formData.name}
                             onChange={e => setFormData({ ...formData, name: e.target.value })}
-                            className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
+                            className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-300">Team Leader Name</label>
+                        <label className="block text-sm font-medium text-gray-700">Team Leader Name</label>
                         <input
                             required
                             value={formData.leaderName}
                             onChange={e => setFormData({ ...formData, leaderName: e.target.value })}
-                            className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
+                            className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-300">Assigned Theme</label>
+                        <label className="block text-sm font-medium text-gray-700">Assigned Theme</label>
                         <select
                             required
                             value={formData.theme}
                             onChange={e => setFormData({ ...formData, theme: e.target.value })}
-                            className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
+                            className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
                         >
-                            <option value="" className="bg-gray-800">Select Theme</option>
+                            <option value="" className="bg-white">Select Theme</option>
                             {themes.map(t => (
-                                <option key={t._id} value={t._id} className="bg-gray-800">{t.name}</option>
+                                <option key={t._id} value={t._id} className="bg-white">{t.name}</option>
                             ))}
                         </select>
                     </div>
 
-                    <div className="bg-black/30 p-3 rounded-md border border-gray-700">
+                    <div className="bg-gray-50 p-3 rounded-md border border-gray-200">
                         <div className="flex justify-between items-center mb-2">
-                            <span className="text-xs font-semibold text-gray-400 uppercase">Credentials</span>
+                            <span className="text-xs font-semibold text-gray-500 uppercase">Credentials</span>
                             <button
                                 type="button"
                                 onClick={handleGenerateValues}
@@ -197,11 +197,11 @@ export default function TeamManagement() {
                             <div className="grid grid-cols-2 gap-2 text-sm">
                                 <div>
                                     <span className="block text-gray-500 text-xs">Username</span>
-                                    <span className="font-mono text-gray-200">{generatedCreds.username}</span>
+                                    <span className="font-mono text-gray-900">{generatedCreds.username}</span>
                                 </div>
                                 <div>
                                     <span className="block text-gray-500 text-xs">Initial Password</span>
-                                    <span className="font-mono text-gray-400">Same as username</span>
+                                    <span className="font-mono text-gray-700">Same as username</span>
                                 </div>
                             </div>
                         ) : (
@@ -228,18 +228,18 @@ export default function TeamManagement() {
                 title="Team Registered Successfully"
             >
                 <div>
-                    <div className="bg-green-900/20 p-4 rounded-md border border-green-800 mb-4">
-                        <p className="text-green-400 text-sm font-medium mb-2">
+                    <div className="bg-green-50 p-4 rounded-md border border-green-200 mb-4">
+                        <p className="text-green-800 text-sm font-medium mb-2">
                             Please save these credentials securely. They will not be shown again.
                         </p>
                         <div className="space-y-2 font-mono text-sm">
                             <div className="flex justify-between">
-                                <span className="text-gray-400">Username:</span>
-                                <span className="font-bold text-gray-200 select-all">{successCreds?.username}</span>
+                                <span className="text-gray-500">Username:</span>
+                                <span className="font-bold text-gray-900 select-all">{successCreds?.username}</span>
                             </div>
                             <div className="flex justify-between">
-                                <span className="text-gray-400">Password (initial):</span>
-                                <span className="font-bold text-gray-200 select-all">{successCreds?.password}</span>
+                                <span className="text-gray-500">Password (initial):</span>
+                                <span className="font-bold text-gray-900 select-all">{successCreds?.password}</span>
                             </div>
                             <p className="text-xs text-gray-500 mt-2">They must change password on first login.</p>
                         </div>
@@ -260,21 +260,21 @@ export default function TeamManagement() {
                 title="Delete Team"
             >
                 <div className="space-y-4">
-                    <p className="text-gray-300">
-                        Are you sure you want to delete <strong className="text-white">{teamToDelete?.name}</strong>? This will remove the team and the team leader&apos;s login account.
+                    <p className="text-gray-700">
+                        Are you sure you want to delete <strong className="text-gray-900">{teamToDelete?.name}</strong>? This will remove the team and the team leader&apos;s login account.
                     </p>
                     <div className="flex gap-3 mt-6">
                         <button
                             type="button"
                             onClick={() => { setDeleteConfirmOpen(false); setTeamToDelete(null); }}
-                            className="flex-1 px-4 py-2 border border-gray-700 rounded-md text-gray-300 hover:bg-gray-800"
+                            className="flex-1 px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
                         >
                             Cancel
                         </button>
                         <button
                             type="button"
                             onClick={handleDeleteConfirm}
-                            className="flex-1 px-4 py-2 bg-red-600/80 text-white rounded-md hover:bg-red-600"
+                            className="flex-1 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
                         >
                             Delete Team
                         </button>

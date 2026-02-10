@@ -15,7 +15,7 @@ export default function Modal({ isOpen, onClose, title, children }) {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                 >
-                    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm" />
+                    <div className="fixed inset-0 bg-gray-500/75 transition-opacity" />
                 </Transition.Child>
 
                 <div className="fixed inset-0 overflow-y-auto">
@@ -29,15 +29,15 @@ export default function Modal({ isOpen, onClose, title, children }) {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-xl bg-gray-900 border border-gray-700 p-6 text-left align-middle shadow-2xl transition-all">
+                            <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-xl bg-white border border-gray-200 p-6 text-left align-middle shadow-xl transition-all">
                                 <Dialog.Title
                                     as="h3"
-                                    className="text-lg font-bold leading-6 text-secondary flex justify-between items-center border-b border-gray-800 pb-4"
+                                    className="text-lg font-bold leading-6 text-gray-900 flex justify-between items-center border-b border-gray-200 pb-4"
                                 >
                                     {title}
                                     <button
                                         onClick={onClose}
-                                        className="text-gray-500 hover:text-white transition-colors"
+                                        className="text-gray-400 hover:text-gray-500 transition-colors"
                                     >
                                         <X size={20} />
                                     </button>

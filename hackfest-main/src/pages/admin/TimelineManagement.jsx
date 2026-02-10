@@ -86,9 +86,9 @@ export default function TimelineManagement() {
             header: 'Type',
             render: (row) => (
                 <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
-          ${row.type === 'EVALUATION' ? 'bg-yellow-900/30 text-yellow-400 border border-yellow-800' :
-                        row.type === 'DEV' ? 'bg-blue-900/30 text-blue-400 border border-blue-800' :
-                            'bg-gray-800 text-gray-300 border border-gray-700'}`}>
+          ${row.type === 'EVALUATION' ? 'bg-yellow-100 text-yellow-800 border border-yellow-200' :
+                        row.type === 'DEV' ? 'bg-blue-100 text-blue-800 border border-blue-200' :
+                            'bg-gray-100 text-gray-800 border border-gray-200'}`}>
                     {row.type}
                 </span>
             )
@@ -100,16 +100,16 @@ export default function TimelineManagement() {
     return (
         <div>
             <div className="sm:flex sm:items-center justify-between mb-6">
-                <h1 className="text-2xl font-bold text-white">Timeline Management</h1>
+                <h1 className="text-2xl font-bold text-gray-900">Timeline Management</h1>
                 <button
                     onClick={() => openModal()}
-                    className="mt-3 sm:mt-0 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-secondary hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"
+                    className="mt-3 sm:mt-0 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                     <Plus className="mr-2 h-4 w-4" /> Add Slot
                 </button>
             </div>
 
-            <div className="bg-black/40 backdrop-blur-md rounded-xl border border-gray-800 shadow-lg overflow-hidden">
+            <div className="bg-white border border-gray-200 shadow-sm rounded-xl overflow-hidden">
                 <Table
                     columns={columns}
                     data={localTimeline}
@@ -117,13 +117,13 @@ export default function TimelineManagement() {
                         <div className="flex space-x-2 justify-end">
                             <button
                                 onClick={() => openModal(row)}
-                                className="text-secondary hover:text-secondary/80 font-medium"
+                                className="text-indigo-600 hover:text-indigo-900 font-medium"
                             >
                                 <Edit size={18} />
                             </button>
                             <button
                                 onClick={() => handleDelete(row.id)}
-                                className="text-red-500 hover:text-red-400 font-medium"
+                                className="text-red-600 hover:text-red-900 font-medium"
                             >
                                 <Trash size={18} />
                             </button>
@@ -139,52 +139,52 @@ export default function TimelineManagement() {
             >
                 <form onSubmit={handleSave} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-300">Activity Name</label>
+                        <label className="block text-sm font-medium text-gray-700">Activity Name</label>
                         <input
                             type="text"
                             name="activity"
                             required
                             defaultValue={currentSlot?.activity}
-                            className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
+                            className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                         />
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-sm font-medium text-gray-300">From</label>
+                            <label className="block text-sm font-medium text-gray-700">From</label>
                             <input
                                 type="datetime-local"
                                 name="from"
                                 required
                                 defaultValue={currentSlot?.from ? new Date(currentSlot.from).toISOString().slice(0, 16) : ''}
-                                className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
+                                className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-300">To</label>
+                            <label className="block text-sm font-medium text-gray-700">To</label>
                             <input
                                 type="datetime-local"
                                 name="to"
                                 required
                                 defaultValue={currentSlot?.to ? new Date(currentSlot.to).toISOString().slice(0, 16) : ''}
-                                className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
+                                className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             />
                         </div>
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-300">Type</label>
+                        <label className="block text-sm font-medium text-gray-700">Type</label>
                         <select
                             name="type"
                             required
                             defaultValue={currentSlot?.type || 'GENERAL'}
-                            className="mt-1 block w-full bg-gray-800 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
+                            className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                         >
-                            <option value="GENERAL" className="bg-gray-800">General</option>
-                            <option value="DEV" className="bg-gray-800">Development</option>
-                            <option value="EVALUATION" className="bg-gray-800">Evaluation</option>
-                            <option value="BREAK" className="bg-gray-800">Break</option>
-                            <option value="FINAL" className="bg-gray-800">Final Round</option>
+                            <option value="GENERAL">General</option>
+                            <option value="DEV">Development</option>
+                            <option value="EVALUATION">Evaluation</option>
+                            <option value="BREAK">Break</option>
+                            <option value="FINAL">Final Round</option>
                         </select>
                     </div>
 
@@ -192,7 +192,7 @@ export default function TimelineManagement() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-secondary text-base font-medium text-black hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary sm:text-sm disabled:opacity-50"
+                            className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm disabled:opacity-50"
                         >
                             {loading ? 'Saving...' : 'Save Activity'}
                         </button>

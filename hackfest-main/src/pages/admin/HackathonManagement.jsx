@@ -67,40 +67,40 @@ export default function HackathonManagement() {
 
     return (
         <div className="max-w-4xl mx-auto space-y-8">
-            <div className="flex items-center justify-between border-b border-gray-800 pb-6">
+            <div className="flex items-center justify-between border-b border-gray-200 pb-6">
                 <div>
-                    <h1 className="text-3xl font-bold text-secondary tracking-wide">Hackathon Configuration</h1>
-                    <p className="mt-2 text-gray-400">Manage the core settings and schedule of the event.</p>
+                    <h1 className="text-3xl font-bold text-gray-900 tracking-wide">Hackathon Configuration</h1>
+                    <p className="mt-2 text-gray-500">Manage the core settings and schedule of the event.</p>
                 </div>
             </div>
 
-            <div className="bg-black/40 backdrop-blur-md shadow-lg rounded-xl border border-secondary/20 p-8">
+            <div className="bg-white shadow rounded-xl border border-gray-200 p-8">
                 <form onSubmit={handleSubmit} className="space-y-8">
 
                     <div className="grid grid-cols-1 gap-y-6 gap-x-4">
                         <div>
-                            <label className="block text-sm font-bold text-secondary mb-2">Hackathon Name</label>
+                            <label className="block text-sm font-bold text-gray-700 mb-2">Hackathon Name</label>
                             <input
                                 type="text"
                                 name="name"
                                 required
                                 value={formData.name}
                                 onChange={handleChange}
-                                className="block w-full rounded-lg border-gray-700 bg-gray-900/50 text-white shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm p-3 transition-colors duration-200"
+                                className="block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm p-3 transition-colors duration-200"
                                 placeholder="Enter hackathon name..."
                             />
                             <p className="mt-2 text-sm text-gray-500">Official name of the event.</p>
                         </div>
 
                         <div>
-                            <label className="block text-sm font-bold text-secondary mb-2">Description</label>
+                            <label className="block text-sm font-bold text-gray-700 mb-2">Description</label>
                             <textarea
                                 name="description"
                                 rows={4}
                                 required
                                 value={formData.description}
                                 onChange={handleChange}
-                                className="block w-full rounded-lg border-gray-700 bg-gray-900/50 text-white shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm p-3 transition-colors duration-200"
+                                className="block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm p-3 transition-colors duration-200"
                                 placeholder="Brief overview for participants..."
                             />
                             <p className="mt-2 text-sm text-gray-500">Brief overview displayed to participants.</p>
@@ -109,31 +109,31 @@ export default function HackathonManagement() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
-                            <label className="block text-sm font-bold text-secondary mb-2">Start Date & Time</label>
+                            <label className="block text-sm font-bold text-gray-700 mb-2">Start Date & Time</label>
                             <input
                                 type="datetime-local"
                                 name="startDate"
                                 required
                                 value={formData.startDate}
                                 onChange={handleChange}
-                                className="block w-full rounded-lg border-gray-700 bg-gray-900/50 text-white shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm p-3 transition-colors duration-200"
+                                className="block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm p-3 transition-colors duration-200"
                             />
                         </div>
 
                         <div>
-                            <label className="block text-sm font-bold text-secondary mb-2">End Date & Time</label>
+                            <label className="block text-sm font-bold text-gray-700 mb-2">End Date & Time</label>
                             <input
                                 type="datetime-local"
                                 name="endDate"
                                 required
                                 value={formData.endDate}
                                 onChange={handleChange}
-                                className="block w-full rounded-lg border-gray-700 bg-gray-900/50 text-white shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm p-3 transition-colors duration-200"
+                                className="block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm p-3 transition-colors duration-200"
                             />
                         </div>
                     </div>
 
-                    <div className="pt-6 border-t border-gray-800">
+                    <div className="pt-6 border-t border-gray-200">
                         <div className="flex items-center justify-between">
                             <span className="text-sm text-gray-500">
                                 Note: Changing duration affects the valid range for timeline slots.
@@ -142,14 +142,14 @@ export default function HackathonManagement() {
                             <button
                                 type="submit"
                                 disabled={isSaving}
-                                className="inline-flex items-center px-6 py-3 border border-transparent rounded-lg shadow-lg shadow-secondary/20 text-sm font-bold text-black bg-gradient-to-r from-secondary to-yellow-500 hover:from-yellow-400 hover:to-yellow-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-secondary disabled:opacity-50 transition-all duration-200 transform hover:scale-[1.02]"
+                                className="inline-flex items-center px-6 py-3 border border-transparent rounded-lg shadow-sm text-sm font-bold text-black bg-secondary hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-secondary disabled:opacity-50 transition-all duration-200 transform hover:scale-[1.02]"
                             >
                                 <Save className="mr-2 h-4 w-4" />
                                 {isSaving ? 'Saving...' : 'Save Configuration'}
                             </button>
                         </div>
                         {message && (
-                            <p className={`mt-4 text-sm text-right font-medium ${message.includes('success') ? 'text-green-400' : 'text-red-400'}`}>
+                            <p className={`mt-4 text-sm text-right font-medium ${message.includes('success') ? 'text-green-600' : 'text-red-600'}`}>
                                 {message}
                             </p>
                         )}
@@ -157,11 +157,11 @@ export default function HackathonManagement() {
                 </form>
             </div>
 
-            <div className="bg-secondary/5 border-l-4 border-secondary p-6 rounded-r-lg">
+            <div className="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg">
                 <div className="flex">
                     <div className="ml-3">
-                        <h3 className="text-sm font-bold text-secondary">System Behavior</h3>
-                        <div className="mt-2 text-sm text-gray-300">
+                        <h3 className="text-sm font-bold text-blue-800">System Behavior</h3>
+                        <div className="mt-2 text-sm text-blue-700">
                             <p>
                                 The number of rounds is fixed to 3 (Round 1, Round 2, and Final Round).
                                 Once the hackathon starts, changing dates might cause inconsistencies in the timeline.

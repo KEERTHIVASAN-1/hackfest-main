@@ -8,25 +8,25 @@ export default function FinalRoundMonitor() {
 
     return (
         <div>
-            <h1 className="text-2xl font-bold text-white mb-6">Final Round Monitor</h1>
+            <h1 className="text-2xl font-bold text-gray-900 mb-6">Final Round Monitor</h1>
 
             {!isFinalRound ? (
-                <div className="text-center py-20 bg-black/40 backdrop-blur-md border border-white/10 rounded-lg shadow">
-                    <h3 className="text-lg font-medium text-white">Final Round is not active yet</h3>
-                    <p className="text-gray-400 mt-2">
+                <div className="text-center py-20 bg-white border border-gray-200 rounded-lg shadow-sm">
+                    <h3 className="text-lg font-medium text-gray-900">Final Round is not active yet</h3>
+                    <p className="text-gray-500 mt-2">
                         Evaluations are currently in Round {hackathon?.currentRound}.
                         Check back when Final Round starts.
                     </p>
                 </div>
             ) : (
                 <div className="space-y-6">
-                    <div className="bg-blue-900/20 border-l-4 border-blue-500 p-4">
+                    <div className="bg-blue-50 border-l-4 border-blue-500 p-4">
                         <div className="flex">
                             <div className="flex-shrink-0">
-                                <AlertCircle className="h-5 w-5 text-blue-400" aria-hidden="true" />
+                                <AlertCircle className="h-5 w-5 text-blue-500" aria-hidden="true" />
                             </div>
                             <div className="ml-3">
-                                <p className="text-sm text-blue-200">
+                                <p className="text-sm text-blue-700">
                                     Teams are automatically assigned to judges.
                                     Each judge evaluates 10 teams. Own theme is excluded.
                                 </p>
@@ -37,9 +37,9 @@ export default function FinalRoundMonitor() {
                     {/* Mock Visualization of Assignments */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {['Judge A', 'Judge B', 'Judge C'].map((judge, idx) => (
-                            <div key={idx} className="bg-black/40 backdrop-blur-md border border-white/10 shadow rounded-lg p-6">
-                                <h3 className="font-bold text-white mb-4">{judge} - Assignments</h3>
-                                <ul className="space-y-2 text-sm text-gray-300">
+                            <div key={idx} className="bg-white border border-gray-200 shadow-sm rounded-lg p-6">
+                                <h3 className="font-bold text-gray-900 mb-4">{judge} - Assignments</h3>
+                                <ul className="space-y-2 text-sm text-gray-600">
                                     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => (
                                         <li key={n} className="flex justify-between">
                                             <span>Team Top {n}</span>
