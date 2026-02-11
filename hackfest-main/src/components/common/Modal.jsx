@@ -29,15 +29,15 @@ export default function Modal({ isOpen, onClose, title, children }) {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-xl bg-white border border-secondary/20 p-6 text-left align-middle shadow-xl shadow-secondary/10 transition-all">
+                            <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-xl bg-white border border-gray-200 p-6 text-left align-middle shadow-xl shadow-primary/10 transition-all">
                                 <Dialog.Title
                                     as="h3"
-                                    className="text-lg font-bold leading-6 text-gray-900 flex justify-between items-center border-b border-secondary/10 pb-4"
+                                    className="text-lg font-bold leading-6 text-gray-900 flex justify-between items-center border-b border-gray-200 pb-4"
                                 >
                                     {title}
                                     <button
                                         onClick={onClose}
-                                        className="text-gray-400 hover:text-secondary transition-colors"
+                                        className="text-gray-400 hover:text-primary transition-colors"
                                     >
                                         <X size={20} />
                                     </button>
@@ -53,3 +53,5 @@ export default function Modal({ isOpen, onClose, title, children }) {
         </Transition>
     );
 }
+
+

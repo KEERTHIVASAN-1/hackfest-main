@@ -169,7 +169,7 @@ export default function EvaluateTeams() {
                                         <button
                                             type="button"
                                             onClick={() => handleEvaluateClick(team)}
-                                            className="w-full inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-secondary hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"
+                                            className="w-full inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
                                         >
                                             Evaluate
                                         </button>
@@ -204,7 +204,7 @@ export default function EvaluateTeams() {
                                 required
                                 value={score}
                                 onChange={e => setScore(e.target.value)}
-                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-lg"
+                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary sm:text-lg"
                                 placeholder="e.g. 8.25"
                             />
                             <p className="mt-1 text-xs text-gray-500">Enter a score out of 10 (e.g. 7.5, 8.25)</p>
@@ -215,14 +215,14 @@ export default function EvaluateTeams() {
                                 type="button"
                                 onClick={() => { setIsModalOpen(false); setSelectedTeam(null); setScore(''); }}
                                 disabled={isSubmitting}
-                                className="flex-1 px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                                className="flex-1 px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-white disabled:opacity-50"
                             >
                                 Cancel
                             </button>
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="flex-1 inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-secondary text-base font-medium text-white hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary sm:text-sm disabled:opacity-50"
+                                className="flex-1 inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-primary text-base font-medium text-white hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary sm:text-sm disabled:opacity-50"
                             >
                                 {isSubmitting ? 'Submitting...' : 'Submit Score'}
                             </button>
@@ -235,3 +235,5 @@ export default function EvaluateTeams() {
         </div>
     );
 }
+
+

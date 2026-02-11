@@ -33,7 +33,7 @@ export default function AdminLayout() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 flex font-sans">
+        <div className="min-h-screen bg-white flex font-sans">
             {/* Mobile sidebar backdrop */}
             {sidebarOpen && (
                 <div
@@ -44,12 +44,12 @@ export default function AdminLayout() {
 
             {/* Sidebar - Fixed position */}
             <div className={clsx(
-                "fixed inset-y-0 left-0 z-50 flex w-64 flex-col bg-white border-r border-secondary/20 transition-transform duration-300 h-screen shadow-xl shadow-secondary/5",
+                "fixed inset-y-0 left-0 z-50 flex w-64 flex-col bg-white border-r border-gray-200 transition-transform duration-300 h-screen shadow-xl shadow-sm",
                 sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
             )}>
-                <div className="flex h-16 flex-shrink-0 items-center justify-between px-6 bg-gradient-to-r from-secondary/10 via-secondary/5 to-transparent border-b border-secondary/10">
+                <div className="flex h-16 flex-shrink-0 items-center justify-between px-6 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent border-b border-gray-200">
                     <span className="text-xl font-bold text-gray-900 flex items-center gap-2">
-                        <span className="text-secondary text-2xl">✨</span> Admin Panel
+                        <span className="text-primary text-2xl"><LayoutDashboard className="w-8 h-8" /></span> Admin Panel
                     </span>
                     <button
                         className="lg:hidden text-gray-500 hover:text-gray-900"
@@ -88,17 +88,17 @@ export default function AdminLayout() {
                     </nav>
                 </div>
 
-                <div className="flex flex-shrink-0 border-t border-secondary/10 p-4 bg-secondary/5">
+                <div className="flex flex-shrink-0 border-t border-gray-200 p-4 bg-primary/5">
                     <button
                         onClick={handleLogout}
-                        className="group block w-full flex-shrink-0 rounded-lg p-2 transition-colors hover:bg-white hover:shadow-sm hover:ring-1 hover:ring-secondary/20"
+                        className="group block w-full flex-shrink-0 rounded-lg p-2 transition-colors hover:bg-white hover:shadow-sm hover:ring-1 hover:ring-primary/20"
                     >
                         <div className="flex items-center">
                             <div>
-                                <LogOut className="inline-block h-5 w-5 text-gray-400 group-hover:text-red-500 transition-colors duration-200" />
+                                <LogOut className="inline-block h-5 w-5 text-gray-400 group-hover:text-secondary transition-colors duration-200" />
                             </div>
                             <div className="ml-3 text-left">
-                                <p className="text-sm font-medium text-gray-700 group-hover:text-red-600 transition-colors duration-200">Logout</p>
+                                <p className="text-sm font-medium text-gray-700 group-hover:text-secondary transition-colors duration-200">Logout</p>
                                 <p className="text-xs font-medium text-gray-500 group-hover:text-gray-400 transition-colors duration-200">{user?.name}</p>
                             </div>
                         </div>
@@ -109,11 +109,11 @@ export default function AdminLayout() {
             {/* Main content */}
             <div className="flex flex-1 flex-col overflow-hidden lg:ml-64 relative">
                 {/* Background decoration */}
-                <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+                <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
                 
                 <div className="lg:hidden pl-2 pt-2 sm:pl-4 sm:pt-4">
                     <button
-                        className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-white shadow-md text-gray-600 hover:text-secondary border border-secondary/20 focus:outline-none focus:ring-2 focus:ring-secondary"
+                        className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-white shadow-md text-gray-600 hover:text-primary border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary"
                         onClick={() => setSidebarOpen(true)}
                     >
                         <span className="sr-only">Open sidebar</span>
@@ -128,3 +128,6 @@ export default function AdminLayout() {
         </div>
     );
 }
+
+
+

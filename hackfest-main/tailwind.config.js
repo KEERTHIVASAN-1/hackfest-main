@@ -7,11 +7,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        secondary: {
-          DEFAULT: '#d4af37', // Metallic Gold
+        primary: {
+          DEFAULT: '#d4af37', // Metallic Gold (User's "Primary Accent")
           light: '#f1c40f',   // Bright Gold
           dark: '#aa8c2c',    // Dark Gold
         },
+        secondary: {
+          DEFAULT: '#c20e0e', // Deep Red (User's "Secondary Accent")
+        },
+        richblack: '#0a0a0a', // Rich Black text
       },
     },
   },

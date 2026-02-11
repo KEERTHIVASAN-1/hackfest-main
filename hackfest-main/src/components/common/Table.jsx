@@ -5,9 +5,9 @@ export default function Table({ columns, data, keyField = 'id', actions }) {
     return (
         <div className="w-full">
             {/* Desktop View */}
-            <div className="hidden sm:block overflow-hidden border border-secondary/20 rounded-lg shadow-sm shadow-secondary/5 bg-white">
-                <table className="min-w-full divide-y divide-secondary/20">
-                    <thead className="bg-secondary/10">
+            <div className="hidden sm:block overflow-hidden border border-gray-200 rounded-lg shadow-sm shadow-sm bg-white">
+                <table className="min-w-full divide-y divide-primary/20">
+                    <thead className="bg-primary/10">
                         <tr>
                             {columns.map((col) => (
                                 <th
@@ -18,13 +18,13 @@ export default function Table({ columns, data, keyField = 'id', actions }) {
                                     {col.header}
                                 </th>
                             ))}
-                            {actions && <th className="px-6 py-3 bg-secondary/10"></th>}
+                            {actions && <th className="px-6 py-3 bg-primary/10"></th>}
                         </tr>
                     </thead>
-                    <tbody className="bg-white divide-y divide-secondary/10">
+                    <tbody className="bg-white divide-y divide-primary/10">
                         {data.length > 0 ? (
                             data.map((row, rowIdx) => (
-                                <tr key={row[keyField] || rowIdx} className="hover:bg-secondary/5 transition-colors duration-150">
+                                <tr key={row[keyField] || rowIdx} className="hover:bg-primary/5 transition-colors duration-150">
                                     {columns.map((col) => (
                                         <td key={col.key} className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             {col.render ? col.render(row) : row[col.key]}
@@ -52,7 +52,7 @@ export default function Table({ columns, data, keyField = 'id', actions }) {
             <div className="sm:hidden space-y-4">
                 {data.length > 0 ? (
                     data.map((row, rowIdx) => (
-                        <div key={row[keyField] || rowIdx} className="bg-white shadow-sm shadow-secondary/5 rounded-lg p-4 border border-secondary/20">
+                        <div key={row[keyField] || rowIdx} className="bg-white shadow-sm shadow-sm rounded-lg p-4 border border-gray-200">
                             <div className="space-y-3">
                                 {columns.map((col) => (
                                     <div key={col.key} className="flex justify-between items-start">
@@ -63,7 +63,7 @@ export default function Table({ columns, data, keyField = 'id', actions }) {
                                     </div>
                                 ))}
                                 {actions && (
-                                    <div className="mt-4 pt-3 border-t border-secondary/10 flex justify-end space-x-2">
+                                    <div className="mt-4 pt-3 border-t border-gray-200 flex justify-end space-x-2">
                                         {actions(row)}
                                     </div>
                                 )}
@@ -77,3 +77,5 @@ export default function Table({ columns, data, keyField = 'id', actions }) {
         </div>
     );
 }
+
+

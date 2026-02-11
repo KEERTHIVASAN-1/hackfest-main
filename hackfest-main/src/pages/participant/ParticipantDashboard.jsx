@@ -81,11 +81,11 @@ export default function ParticipantDashboard() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Team Info Card */}
-                <div className="bg-white shadow-lg rounded-xl p-6 border border-secondary/30 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-2xl -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
+                <div className="bg-white shadow-lg rounded-xl p-6 border border-primary/30 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl -mr-10 -mt-10 transition-transform group-hover:scale-110"></div>
                     
                     <h3 className="text-lg font-bold text-gray-900 flex items-center relative z-10">
-                        <span className="bg-secondary/20 p-2 rounded-lg mr-3 text-secondary-dark">
+                        <span className="bg-primary/20 p-2 rounded-lg mr-3 text-primary-dark">
                             <CheckCircle className="h-5 w-5 text-black" />
                         </span>
                         Team Details
@@ -106,7 +106,7 @@ export default function ParticipantDashboard() {
                                     Round {hackathon?.currentRound ?? '—'}
                                 </span>
                                 {isRoundActive && (
-                                    <span className="ml-3 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-secondary text-black animate-pulse shadow-sm">
+                                    <span className="ml-3 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary text-black animate-pulse shadow-sm">
                                         LIVE
                                     </span>
                                 )}
@@ -199,7 +199,7 @@ export default function ParticipantDashboard() {
                                 {updating ? 'Updating...' : !isRoundActive ? 'Round not started yet' : 'MARK AS READY'}
                             </button>
                             {!isRoundActive && (
-                                <p className="mt-2 text-xs text-red-500 text-center">
+                                <p className="mt-2 text-xs text-secondary text-center">
                                     Wait for admin to start the round.
                                 </p>
                             )}
@@ -211,7 +211,7 @@ export default function ParticipantDashboard() {
             <div className="bg-white shadow rounded-lg p-6">
                 <div className="flex items-center justify-between mb-4">
                     <h2 className="text-lg font-medium text-gray-900">Timeline & Schedule</h2>
-                    <Link to="/participant/complaint" className="text-sm text-secondary hover:underline flex items-center">
+                    <Link to="/participant/complaint" className="text-sm text-primary hover:underline flex items-center">
                         <Send className="w-4 h-4 mr-1" /> Raise Issue
                     </Link>
                 </div>
@@ -220,3 +220,5 @@ export default function ParticipantDashboard() {
         </div>
     );
 }
+
+

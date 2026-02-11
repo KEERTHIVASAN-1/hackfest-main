@@ -40,7 +40,7 @@ export default function ComplaintViewer() {
             key: 'status',
             header: 'Status',
             render: (row) => (
-                <span className={`inline-flex px-2 py-0.5 rounded text-xs font-bold border ${row.status === 'RESOLVED' ? 'bg-green-50 text-green-700 border-green-200' : 'bg-secondary/20 text-black border-secondary/30'}`}>
+                <span className={`inline-flex px-2 py-0.5 rounded text-xs font-bold border ${row.status === 'RESOLVED' ? 'bg-green-50 text-green-700 border-green-200' : 'bg-primary/20 text-black border-primary/30'}`}>
                     {row.status || 'PENDING'}
                 </span>
             )
@@ -56,9 +56,9 @@ export default function ComplaintViewer() {
 
     return (
         <div className="space-y-6">
-            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-sm border border-secondary/20">
-                <div className="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"></div>
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/50 to-secondary"></div>
+            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-sm border border-gray-200">
+                <div className="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-primary/50 to-primary"></div>
 
                 <div className="relative">
                     <h1 className="text-2xl font-bold text-gray-900">Complaint Log</h1>
@@ -67,18 +67,20 @@ export default function ComplaintViewer() {
             </div>
 
             {complaints.length === 0 ? (
-                <div className="text-center py-12 bg-white rounded-xl border border-secondary/20 shadow-lg shadow-secondary/5">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary/10 mb-4">
-                        <AlertCircle className="h-8 w-8 text-secondary" />
+                <div className="text-center py-12 bg-white rounded-xl border border-gray-200 shadow-lg shadow-sm">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
+                        <AlertCircle className="h-8 w-8 text-primary" />
                     </div>
                     <h3 className="mt-2 text-sm font-bold text-gray-900">No complaints</h3>
                     <p className="mt-1 text-sm text-gray-500">Everything seems to be running smoothly!</p>
                 </div>
             ) : (
-                <div className="bg-white shadow-lg shadow-secondary/5 rounded-xl border border-secondary/20 overflow-hidden">
+                <div className="bg-white shadow-lg shadow-sm rounded-xl border border-gray-200 overflow-hidden">
                     <Table columns={columns} data={complaints} keyField="_id" />
                 </div>
             )}
         </div>
     );
 }
+
+

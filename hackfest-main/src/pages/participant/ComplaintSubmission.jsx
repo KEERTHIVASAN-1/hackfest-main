@@ -43,8 +43,8 @@ export default function ComplaintSubmission() {
 
             <div className="bg-white shadow rounded-lg p-8">
                 <div className="flex items-center mb-6">
-                    <div className="bg-red-100 p-3 rounded-full mr-4">
-                        <AlertTriangle className="h-6 w-6 text-red-600" />
+                    <div className="bg-secondary/10 p-3 rounded-full mr-4">
+                        <AlertTriangle className="h-6 w-6 text-secondary" />
                     </div>
                     <div>
                         <h1 className="text-2xl font-bold text-gray-900">Report an Issue</h1>
@@ -61,7 +61,7 @@ export default function ComplaintSubmission() {
                             required
                             value={formData.type}
                             onChange={e => setFormData({ ...formData, type: e.target.value })}
-                            className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm rounded-md"
+                            className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md"
                         >
                             <option>Technical Issue</option>
                             <option>Evaluation Issue</option>
@@ -79,7 +79,7 @@ export default function ComplaintSubmission() {
                             placeholder="Describe the issue in detail..."
                             value={formData.description}
                             onChange={e => setFormData({ ...formData, description: e.target.value })}
-                            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
+                            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
                         />
                     </div>
 
@@ -87,7 +87,7 @@ export default function ComplaintSubmission() {
                         <button
                             type="submit"
                             disabled={submitting}
-                            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-50"
+                            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-secondary hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary disabled:opacity-50"
                         >
                             <Send className="mr-2 h-4 w-4" />
                             {submitting ? 'Sending...' : 'Submit Complaint'}
@@ -98,3 +98,5 @@ export default function ComplaintSubmission() {
         </div>
     );
 }
+
+

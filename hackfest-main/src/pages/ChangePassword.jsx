@@ -52,15 +52,15 @@ export default function ChangePassword() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="min-h-screen bg-white flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
             {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
 
             <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10">
                 <div className="flex justify-center mb-6">
-                    <div className="p-3 bg-secondary/10 rounded-full">
-                        <Lock className="h-8 w-8 text-secondary" />
+                    <div className="p-3 bg-primary/10 rounded-full">
+                        <Lock className="h-8 w-8 text-primary" />
                     </div>
                 </div>
                 <h2 className="mt-2 text-center text-3xl font-extrabold text-gray-900">
@@ -72,8 +72,8 @@ export default function ChangePassword() {
             </div>
 
             <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md relative z-10">
-                <div className="bg-white py-8 px-4 shadow-xl shadow-secondary/5 border border-secondary/20 sm:rounded-lg sm:px-10 relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/50 to-secondary"></div>
+                <div className="bg-white py-8 px-4 shadow-xl shadow-sm border border-gray-200 sm:rounded-lg sm:px-10 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-primary/50 to-primary"></div>
                     
                     <form className="space-y-6" onSubmit={handleSubmit}>
                         <div>
@@ -87,7 +87,7 @@ export default function ChangePassword() {
                                     required
                                     value={currentPassword}
                                     onChange={(e) => setCurrentPassword(e.target.value)}
-                                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm"
+                                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-primary focus:outline-none focus:ring-primary sm:text-sm"
                                     placeholder="Your current password or username"
                                 />
                             </div>
@@ -103,7 +103,7 @@ export default function ChangePassword() {
                                     required
                                     value={newPassword}
                                     onChange={(e) => setNewPassword(e.target.value)}
-                                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm"
+                                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-primary focus:outline-none focus:ring-primary sm:text-sm"
                                 />
                             </div>
                         </div>
@@ -118,16 +118,16 @@ export default function ChangePassword() {
                                     required
                                     value={confirmPassword}
                                     onChange={(e) => setConfirmPassword(e.target.value)}
-                                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-secondary focus:outline-none focus:ring-secondary sm:text-sm"
+                                    className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-primary focus:outline-none focus:ring-primary sm:text-sm"
                                 />
                             </div>
                         </div>
 
                         {error && (
-                            <div className="rounded-md bg-red-50 p-4 border border-red-200">
+                            <div className="rounded-md bg-secondary/5 p-4 border border-secondary/20">
                                 <div className="flex">
                                     <div className="ml-3">
-                                        <h3 className="text-sm font-medium text-red-800">{error}</h3>
+                                        <h3 className="text-sm font-medium text-secondary">{error}</h3>
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +137,7 @@ export default function ChangePassword() {
                             <button
                                 type="submit"
                                 disabled={isLoading}
-                                className="flex w-full justify-center rounded-md border border-transparent bg-secondary py-2 px-4 text-sm font-medium text-black shadow-sm hover:bg-white hover:text-secondary hover:border-secondary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 disabled:opacity-50"
+                                className="flex w-full justify-center rounded-md border border-transparent bg-primary py-2 px-4 text-sm font-medium text-black shadow-sm hover:bg-white hover:text-primary hover:border-primary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50"
                             >
                                 {isLoading ? 'Updating...' : 'Update Password'}
                             </button>
@@ -148,3 +148,6 @@ export default function ChangePassword() {
         </div>
     );
 }
+
+
+

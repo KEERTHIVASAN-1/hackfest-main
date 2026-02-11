@@ -28,8 +28,8 @@ export default function JudgeDashboard() {
                 <p className="text-gray-500">Welcome, {user?.name ?? 'Judge'}</p>
             </div>
 
-            <div className="bg-white shadow-lg rounded-xl p-6 border border-secondary/30 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-secondary/20 to-transparent rounded-full blur-3xl -mr-10 -mt-10"></div>
+            <div className="bg-white shadow-lg rounded-xl p-6 border border-primary/30 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl -mr-10 -mt-10"></div>
                 
                 <h3 className="text-lg font-bold text-gray-900 relative z-10">Assigned Theme</h3>
                 <p className="mt-2 text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-yellow-400 relative z-10">
@@ -43,11 +43,11 @@ export default function JudgeDashboard() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-white p-6 shadow-md rounded-xl flex items-center border border-gray-100 hover:border-secondary/50 transition-colors duration-300 relative overflow-hidden">
+                <div className="bg-white p-6 shadow-md rounded-xl flex items-center border border-gray-100 hover:border-primary/50 transition-colors duration-300 relative overflow-hidden">
                      {/* Glow effect for active round */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-secondary/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
                     
-                    <div className="p-3 rounded-full bg-secondary/20 text-black mr-4 relative z-10">
+                    <div className="p-3 rounded-full bg-primary/20 text-black mr-4 relative z-10">
                         <Clock className="h-6 w-6" />
                     </div>
                     <div className="relative z-10">
@@ -85,3 +85,4 @@ export default function JudgeDashboard() {
         </div>
     );
 }
+

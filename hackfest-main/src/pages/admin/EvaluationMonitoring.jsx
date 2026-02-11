@@ -47,7 +47,7 @@ export default function EvaluationMonitoring() {
             render: (row) => (
                 row.currentRoundReady
                     ? <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-green-50 text-green-700 border border-green-200"><CheckCircle className="w-3 h-3 mr-1" /> READY</span>
-                    : <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-secondary/10 text-gray-700 border border-secondary/20"><Clock className="w-3 h-3 mr-1" /> Waiting</span>
+                    : <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-primary/10 text-gray-700 border border-gray-200"><Clock className="w-3 h-3 mr-1" /> Waiting</span>
             )
         },
         {
@@ -64,9 +64,9 @@ export default function EvaluationMonitoring() {
 
     return (
         <div className="space-y-6">
-            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-sm border border-secondary/20">
-                <div className="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"></div>
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/50 to-secondary"></div>
+            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-sm border border-gray-200">
+                <div className="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-primary/50 to-primary"></div>
 
                 <div className="relative">
                     <h1 className="text-2xl font-bold text-gray-900">Evaluation Monitor</h1>
@@ -75,29 +75,29 @@ export default function EvaluationMonitoring() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-white border border-secondary/20 p-6 shadow-lg shadow-secondary/5 rounded-xl relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-16 h-16 bg-secondary/5 rounded-bl-full -mr-2 -mt-2"></div>
+                <div className="bg-white border border-gray-200 p-6 shadow-lg shadow-sm rounded-xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full -mr-2 -mt-2"></div>
                     <div className="text-sm font-bold text-gray-500 uppercase tracking-wide">Total Teams</div>
                     <div className="mt-2 text-4xl font-bold text-gray-900">{monitorData.length}</div>
                 </div>
-                <div className="bg-white border border-secondary/20 p-6 shadow-lg shadow-secondary/5 rounded-xl relative overflow-hidden">
+                <div className="bg-white border border-gray-200 p-6 shadow-lg shadow-sm rounded-xl relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-16 h-16 bg-green-50 rounded-bl-full -mr-2 -mt-2"></div>
                     <div className="text-sm font-bold text-gray-500 uppercase tracking-wide">Ready for Eval</div>
                     <div className="mt-2 text-4xl font-bold text-green-600">
                         {monitorData.filter(t => t.currentRoundReady).length}
                     </div>
                 </div>
-                <div className="bg-white border border-secondary/20 p-6 shadow-lg shadow-secondary/5 rounded-xl relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-16 h-16 bg-secondary/10 rounded-bl-full -mr-2 -mt-2"></div>
+                <div className="bg-white border border-gray-200 p-6 shadow-lg shadow-sm rounded-xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-16 h-16 bg-primary/10 rounded-bl-full -mr-2 -mt-2"></div>
                     <div className="text-sm font-bold text-gray-500 uppercase tracking-wide">Evaluations Done</div>
-                    <div className="mt-2 text-4xl font-bold text-secondary">
+                    <div className="mt-2 text-4xl font-bold text-primary">
                         {monitorData.reduce((acc, curr) => acc + curr.currentRoundEvals, 0)}
                     </div>
                 </div>
             </div>
 
-            <div className="bg-white border border-secondary/20 shadow-lg shadow-secondary/5 rounded-xl overflow-hidden">
-                <div className="px-6 py-4 border-b border-secondary/10 bg-secondary/5">
+            <div className="bg-white border border-gray-200 shadow-lg shadow-sm rounded-xl overflow-hidden">
+                <div className="px-6 py-4 border-b border-gray-200 bg-primary/5">
                     <h3 className="text-lg leading-6 font-bold text-gray-900">
                         Team Progress
                     </h3>
@@ -107,3 +107,5 @@ export default function EvaluationMonitoring() {
         </div>
     );
 }
+
+

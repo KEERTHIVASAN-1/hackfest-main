@@ -17,8 +17,8 @@ export default function VerticalTimeline() {
 
     if (!timeline || timeline.length === 0) {
         return (
-            <div className="rounded-xl border border-secondary/20 bg-secondary/5 p-8 text-center shadow-lg shadow-secondary/5">
-                <Calendar className="mx-auto h-12 w-12 text-secondary/50" />
+            <div className="rounded-xl border border-gray-200 bg-primary/5 p-8 text-center shadow-lg shadow-sm">
+                <Calendar className="mx-auto h-12 w-12 text-primary/50" />
                 <p className="mt-2 text-gray-600 text-sm font-medium">No schedule added yet.</p>
             </div>
         );
@@ -40,3 +40,5 @@ export default function VerticalTimeline() {
         </div>
     );
 }
+
+

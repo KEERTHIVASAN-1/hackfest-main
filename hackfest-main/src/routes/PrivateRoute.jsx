@@ -11,7 +11,7 @@ export default function PrivateRoute({ children, allowedRoles }) {
         return (
             <div className="min-h-screen flex items-center justify-center">
                 {/* Placeholder for loading spinner until component is built */}
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-secondary"></div>
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
             </div>
         );
     }
@@ -34,3 +34,4 @@ export default function PrivateRoute({ children, allowedRoles }) {
 
     return children;
 }
+
