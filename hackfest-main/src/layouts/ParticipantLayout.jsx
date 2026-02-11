@@ -3,6 +3,7 @@ import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { LayoutDashboard, AlertCircle, LogOut, Menu, X } from 'lucide-react';
 import clsx from 'clsx';
+import AIChatBot from '../components/common/AIChatBot';
 
 const NAVIGATION = [
     { name: 'Dashboard', href: '/participant/dashboard', icon: LayoutDashboard },
@@ -111,6 +112,7 @@ export default function ParticipantLayout() {
                     <Outlet />
                 </main>
             </div>
+            <AIChatBot />
         </div>
     );
 }

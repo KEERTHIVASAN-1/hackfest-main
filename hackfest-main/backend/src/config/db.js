@@ -3,8 +3,7 @@ import mongoose from 'mongoose';
 const connectDB = async () => {
     try {
         const conn = await mongoose.connect(process.env.MONGO_URI, {
-            // These options are set by default in Mongoose 6+
-            // Just keeping for clarity
+            dbName: process.env.MONGO_DBNAME || 'hackfest'
         });
 
         console.log(`✅ MongoDB connected: ${conn.connection.host}`);

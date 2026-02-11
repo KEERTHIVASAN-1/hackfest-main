@@ -15,6 +15,7 @@ import judgeRoutes from './routes/judgeRoutes.js';
 import evaluationRoutes from './routes/evaluationRoutes.js';
 import leaderboardRoutes from './routes/leaderboardRoutes.js';
 import complaintRoutes from './routes/complaintRoutes.js';
+import aiRoutes from './routes/aiRoutes.js';
 
 // Import middleware
 import { errorHandler, notFound } from './middlewares/errorMiddleware.js';
@@ -69,6 +70,7 @@ app.use('/api/judges', judgeRoutes);
 app.use('/api/evaluations', evaluationRoutes);
 app.use('/api/leaderboard', leaderboardRoutes);
 app.use('/api/complaints', complaintRoutes);
+app.use('/api/ai', aiRoutes);
 
 // 404 handler
 app.use(notFound);

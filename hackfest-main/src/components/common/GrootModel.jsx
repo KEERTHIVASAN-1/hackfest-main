@@ -82,8 +82,8 @@ function GrootModel({ onClick }) {
     <group ref={groupRef} onClick={onClick}>
       <primitive
         object={cloned}
-        scale={11.0}
-        position={[0, -5.5, 0]}
+        scale={12.0}
+        position={[0, -6.0, 0]}
         rotation={[0, -1, 0]}
       />
     </group>
@@ -137,6 +137,27 @@ export default function GrootModelViewer() {
           minPolarAngle={Math.PI / 3}
           maxPolarAngle={Math.PI / 2}
         />
+      </Canvas>
+    </div>
+  );
+}
+
+export function GrootChatIcon() {
+  const { scene } = useGLTF('/groot.glb');
+  const cloned = useMemo(() => scene.clone(), [scene]);
+  return (
+    <div className="h-20 w-20">
+      <Canvas camera={{ position: [0, 2.0, 10], fov: 45 }}>
+        <ambientLight intensity={1.2} />
+        <directionalLight position={[3, 5, 3]} intensity={1.2} />
+        <Suspense fallback={null}>
+          <primitive
+            object={cloned}
+            scale={5.04}
+            position={[0, -2.8, 0]}
+            rotation={[0, -Math.PI / 2, 0]}
+          />
+        </Suspense>
       </Canvas>
     </div>
   );

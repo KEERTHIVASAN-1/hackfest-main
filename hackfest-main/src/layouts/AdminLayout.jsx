@@ -6,6 +6,7 @@ import {
     Shield, LogOut, Menu, X, FileText, Download
 } from 'lucide-react';
 import clsx from 'clsx';
+import AIChatBot from '../components/common/AIChatBot';
 
 const NAVIGATION = [
     { name: 'Dashboard', href: '/admin/dashboard', icon: LayoutDashboard },
@@ -125,9 +126,9 @@ export default function AdminLayout() {
                     <Outlet />
                 </main>
             </div>
+            <AIChatBot />
         </div>
     );
 }
-
 
 

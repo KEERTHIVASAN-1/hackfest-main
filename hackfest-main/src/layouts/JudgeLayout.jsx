@@ -3,6 +3,7 @@ import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { LayoutDashboard, Award, History, LogOut, Menu, X } from 'lucide-react';
 import clsx from 'clsx';
+import AIChatBot from '../components/common/AIChatBot';
 
 const NAVIGATION = [
     { name: 'Dashboard', href: '/judge/dashboard', icon: LayoutDashboard },
@@ -115,9 +116,9 @@ export default function JudgeLayout() {
                     <Outlet />
                 </main>
             </div>
+            <AIChatBot />
         </div>
     );
 }
-
 
 
