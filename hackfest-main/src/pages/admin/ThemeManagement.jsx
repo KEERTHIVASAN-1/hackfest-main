@@ -72,27 +72,35 @@ export default function ThemeManagement() {
     if (loading && themes.length === 0) return <LoadingSpinner />;
 
     return (
-        <div>
-            <div className="sm:flex sm:items-center justify-between mb-6">
-                <h1 className="text-2xl font-bold text-gray-900">Theme Management</h1>
-                <button
-                    onClick={() => openModal()}
-                    className="mt-3 sm:mt-0 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-secondary hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"
-                >
-                    <Plus className="mr-2 h-4 w-4" /> Add Theme
-                </button>
+        <div className="space-y-6">
+            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-sm border border-secondary/20">
+                <div className="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/50 to-secondary"></div>
+
+                <div className="relative flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <h1 className="text-2xl font-bold text-gray-900">Theme Management</h1>
+                        <p className="mt-1 text-sm text-gray-500">Create and manage hackathon themes</p>
+                    </div>
+                    <button
+                        onClick={() => openModal()}
+                        className="inline-flex items-center px-4 py-2 border border-secondary/50 rounded-lg shadow-sm text-sm font-bold text-black bg-secondary hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary transition-all duration-200 transform hover:scale-105"
+                    >
+                        <Plus className="mr-2 h-4 w-4" /> Add Theme
+                    </button>
+                </div>
             </div>
 
-            <div className="bg-white border border-gray-200 shadow-sm rounded-xl overflow-hidden">
+            <div className="bg-white shadow-lg shadow-secondary/5 rounded-xl border border-secondary/20 overflow-hidden">
                 <Table
                     columns={columns}
                     data={themes}
                     actions={(row) => (
                         <div className="flex space-x-2 justify-end">
-                            <button onClick={() => openModal(row)} className="text-gray-600 hover:text-gray-900">
+                            <button onClick={() => openModal(row)} className="text-gray-600 hover:text-secondary hover:bg-secondary/10 p-1 rounded transition-colors" title="Edit">
                                 <Edit size={18} />
                             </button>
-                            <button onClick={() => handleDelete(row.id)} className="text-red-600 hover:text-red-900">
+                            <button onClick={() => handleDelete(row.id)} className="text-red-500 hover:text-red-700 hover:bg-red-50 p-1 rounded transition-colors" title="Delete">
                                 <Trash size={18} />
                             </button>
                         </div>
@@ -112,7 +120,7 @@ export default function ThemeManagement() {
                             name="name"
                             required
                             defaultValue={currentTheme?.name}
-                            className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
+                            className="mt-1 block w-full bg-white border border-secondary/30 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
                         />
                     </div>
                     <div>
@@ -122,11 +130,11 @@ export default function ThemeManagement() {
                             name="maxTeams"
                             required
                             defaultValue={currentTheme?.maxTeams || 10}
-                            className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
+                            className="mt-1 block w-full bg-white border border-secondary/30 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
                         />
                     </div>
                     <div className="mt-5 sm:mt-6">
-                        <button type="submit" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-secondary text-base font-medium text-black hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary sm:text-sm">
+                        <button type="submit" className="w-full inline-flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-bold text-black bg-secondary hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary transition-colors">
                             Save Theme
                         </button>
                     </div>

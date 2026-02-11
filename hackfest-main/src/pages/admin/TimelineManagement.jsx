@@ -36,7 +36,8 @@ export default function TimelineManagement() {
         setLoading(true);
         try {
             if (currentSlot) {
-                await hackathonApi.updateTimelineSlot(currentSlot.id, slotData);
+                const id = currentSlot._id || currentSlot.id;
+                await hackathonApi.updateTimelineSlot(id, slotData);
             } else {
                 await hackathonApi.addTimelineSlot(slotData);
             }
@@ -98,32 +99,44 @@ export default function TimelineManagement() {
     if (contextLoading) return <LoadingSpinner />;
 
     return (
-        <div>
-            <div className="sm:flex sm:items-center justify-between mb-6">
-                <h1 className="text-2xl font-bold text-gray-900">Timeline Management</h1>
-                <button
-                    onClick={() => openModal()}
-                    className="mt-3 sm:mt-0 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-secondary hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"
-                >
-                    <Plus className="mr-2 h-4 w-4" /> Add Slot
-                </button>
+        <div className="space-y-6">
+            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-sm border border-secondary/20">
+                <div className="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"></div>
+                <div className="sm:flex sm:items-center justify-between relative z-10">
+                    <div>
+                        <h1 className="text-2xl font-bold text-gray-900">
+                            Timeline Management <span className="text-secondary ml-2">✨</span>
+                        </h1>
+                        <p className="mt-1 text-sm text-gray-500">Manage the schedule and activities for the hackathon.</p>
+                    </div>
+                    <button
+                        onClick={() => openModal()}
+                        className="mt-3 sm:mt-0 inline-flex items-center px-4 py-2 border border-secondary/50 rounded-lg shadow-sm text-sm font-bold text-black bg-secondary hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary transition-all duration-200 transform hover:scale-105"
+                    >
+                        <Plus className="mr-2 h-4 w-4" /> Add Slot
+                    </button>
+                </div>
             </div>
 
-            <div className="bg-white border border-gray-200 shadow-sm rounded-xl overflow-hidden">
+            <div className="bg-white border border-secondary/20 shadow-sm rounded-xl overflow-hidden relative">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/50 to-secondary"></div>
                 <Table
                     columns={columns}
                     data={localTimeline}
+                    headerClassName="bg-secondary/10 text-gray-900 font-bold"
                     actions={(row) => (
                         <div className="flex space-x-2 justify-end">
                             <button
                                 onClick={() => openModal(row)}
-                                className="text-secondary hover:text-secondary-dark font-medium"
+                                className="p-1.5 rounded-lg text-secondary hover:bg-secondary/10 transition-colors"
+                                title="Edit"
                             >
                                 <Edit size={18} />
                             </button>
                             <button
-                                onClick={() => handleDelete(row.id)}
-                                className="text-red-600 hover:text-red-900 font-medium"
+                                onClick={() => handleDelete(row._id || row.id)}
+                                className="p-1.5 rounded-lg text-red-600 hover:bg-red-50 transition-colors"
+                                title="Delete"
                             >
                                 <Trash size={18} />
                             </button>

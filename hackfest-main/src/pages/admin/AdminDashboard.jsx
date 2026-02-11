@@ -23,26 +23,31 @@ export default function AdminDashboard() {
     }, []);
 
     const stats = [
-        { name: 'Total Teams', value: statsData.teams, icon: Users, hoverClass: 'hover:border-secondary hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]' },
-        { name: 'Total Judges', value: statsData.judges, icon: Award, hoverClass: 'hover:border-secondary hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]' },
-        { name: 'Themes', value: statsData.themes, icon: Briefcase, hoverClass: 'hover:border-secondary hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]' },
-        { name: 'Round', value: statsData.round, icon: Clock, hoverClass: 'hover:border-secondary hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]' },
+        { name: 'Total Teams', value: statsData.teams, icon: Users, hoverClass: 'border-secondary/30 hover:border-secondary hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]' },
+        { name: 'Total Judges', value: statsData.judges, icon: Award, hoverClass: 'border-secondary/30 hover:border-secondary hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]' },
+        { name: 'Themes', value: statsData.themes, icon: Briefcase, hoverClass: 'border-secondary/30 hover:border-secondary hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]' },
+        { name: 'Round', value: statsData.round, icon: Clock, hoverClass: 'border-secondary/30 hover:border-secondary hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]' },
     ];
 
     return (
         <div className="space-y-6">
-            <div>
-                <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
-                <p className="text-gray-500">Overview of hackathon status and activity</p>
+            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-sm border border-secondary/20">
+                <div className="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/50 to-secondary"></div>
+                <h1 className="text-2xl font-bold text-gray-900 relative z-10">
+                    Admin Dashboard <span className="text-secondary ml-2">✨</span>
+                </h1>
+                <p className="text-gray-500 relative z-10">Overview of hackathon status and activity</p>
             </div>
 
             {/* Stats Grid */}
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
                 {stats.map((item) => (
-                    <div key={item.name} className={`bg-white shadow-sm rounded-xl border border-gray-200 transition-all duration-300 transform hover:-translate-y-1 ${item.hoverClass}`}>
-                        <div className="p-5">
+                    <div key={item.name} className={`bg-white shadow-lg shadow-secondary/5 rounded-xl border transition-all duration-300 transform hover:-translate-y-1 ${item.hoverClass} relative overflow-hidden group`}>
+                        <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-secondary/10 to-transparent rounded-bl-full -mr-2 -mt-2 transition-transform group-hover:scale-150 duration-500"></div>
+                        <div className="p-5 relative z-10">
                             <div className="flex items-center">
-                                <div className="flex-shrink-0 rounded-lg p-3 bg-secondary/10">
+                                <div className="flex-shrink-0 rounded-lg p-3 bg-secondary/10 group-hover:bg-secondary/20 transition-colors duration-300">
                                     <item.icon className="h-6 w-6 text-secondary" />
                                 </div>
                                 <div className="ml-5 w-0 flex-1">
@@ -62,9 +67,10 @@ export default function AdminDashboard() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Timeline Status */}
                 <div className="lg:col-span-2">
-                    <div className="bg-white shadow-sm rounded-xl border border-gray-200 h-full">
-                        <div className="px-6 py-5 border-b border-gray-200">
-                            <h3 className="text-lg font-medium leading-6 text-gray-900">Event Timeline</h3>
+                    <div className="bg-white shadow-lg shadow-secondary/5 rounded-xl border border-secondary/20 h-full relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/50 to-secondary"></div>
+                        <div className="px-6 py-5 border-b border-secondary/10">
+                            <h3 className="text-lg font-bold leading-6 text-gray-900">Event Timeline</h3>
                         </div>
                         <div className="p-6">
                             <VerticalTimeline events={hackathon?.timeline || []} currentRound={hackathon?.currentRound} />
@@ -74,8 +80,9 @@ export default function AdminDashboard() {
 
                 {/* Current Status */}
                 <div>
-                    <div className="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
-                        <div className="px-6 py-5 border-b border-gray-200 bg-gray-50">
+                    <div className="bg-white shadow-lg shadow-secondary/5 rounded-xl border border-secondary/20 overflow-hidden relative">
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/50 to-secondary"></div>
+                        <div className="px-6 py-5 border-b border-secondary/10 bg-secondary/5">
                             <h3 className="text-lg font-bold leading-6 text-gray-900 flex items-center">
                                 <span className="relative flex h-3 w-3 mr-3">
                                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>

@@ -15,7 +15,7 @@ export default function TimelineSlot({ slot, isActive }) {
                 'relative pl-10 pb-8 last:pb-0',
                 'border-l-2 transition-colors duration-300',
                 isActive && 'border-secondary',
-                isCompleted && 'border-gray-300',
+                isCompleted && 'border-secondary/20',
                 isUpcoming && 'border-gray-200'
             )}
         >
@@ -23,14 +23,14 @@ export default function TimelineSlot({ slot, isActive }) {
             <div
                 className={clsx(
                     'absolute left-0 top-0 -translate-x-1/2 flex items-center justify-center',
-                    'w-5 h-5 rounded-full border-2 bg-white',
-                    isActive && 'border-secondary timeline-live-blink shadow-[0_0_10px_rgba(212,175,55,0.5)]',
-                    isCompleted && 'border-gray-400 bg-gray-100',
+                    'w-5 h-5 rounded-full border-2 bg-white transition-all duration-300',
+                    isActive && 'border-secondary timeline-live-blink shadow-[0_0_10px_rgba(212,175,55,0.5)] scale-110',
+                    isCompleted && 'border-secondary/30 bg-secondary/10',
                     isUpcoming && 'border-gray-300'
                 )}
             >
                 {isCompleted && (
-                    <CheckCircle2 className="w-3 h-3 text-gray-500" />
+                    <CheckCircle2 className="w-3 h-3 text-secondary/70" />
                 )}
                 {isActive && (
                     <span className="absolute w-2 h-2 rounded-full bg-secondary" />
@@ -45,10 +45,10 @@ export default function TimelineSlot({ slot, isActive }) {
                 className={clsx(
                     'rounded-xl p-4 transition-all duration-300 border',
                     isActive &&
-                        'bg-white border-secondary shadow-md timeline-live-glow',
+                        'bg-white border-secondary shadow-lg shadow-secondary/10 timeline-live-glow',
                     isCompleted &&
-                        'bg-gray-50 border-gray-200 opacity-80 hover:opacity-100',
-                    isUpcoming && 'bg-white border-gray-200 shadow-sm hover:border-gray-300'
+                        'bg-secondary/5 border-secondary/10 opacity-80 hover:opacity-100 hover:bg-white hover:border-secondary/30 hover:shadow-md hover:shadow-secondary/5',
+                    isUpcoming && 'bg-white border-gray-200 shadow-sm hover:border-secondary/30 hover:shadow-md hover:shadow-secondary/5'
                 )}
             >
                 <div className="flex flex-wrap items-center gap-2 sm:gap-3">
@@ -56,7 +56,7 @@ export default function TimelineSlot({ slot, isActive }) {
                         className={clsx(
                             'font-bold text-base',
                             isActive && 'text-gray-900',
-                            isCompleted && 'text-gray-500 line-through decoration-gray-400',
+                            isCompleted && 'text-gray-500 line-through decoration-secondary/40',
                             isUpcoming && 'text-gray-700'
                         )}
                     >
@@ -75,14 +75,14 @@ export default function TimelineSlot({ slot, isActive }) {
                 <div
                     className={clsx(
                         'flex items-center gap-2 mt-2 text-sm',
-                        isActive ? 'text-secondary' : 'text-gray-500'
+                        isActive ? 'text-secondary font-medium' : 'text-gray-500'
                     )}
                 >
                     <Clock className="w-4 h-4 shrink-0" />
                     <span>
                         {format(fromDate, 'h:mm a')} – {format(toDate, 'h:mm a')}
                     </span>
-                    <span className="text-gray-400">·</span>
+                    <span className="text-secondary/30">·</span>
                     <span>{format(fromDate, 'MMM d')}</span>
                 </div>
             </div>

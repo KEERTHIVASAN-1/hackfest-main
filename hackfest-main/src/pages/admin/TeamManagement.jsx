@@ -126,18 +126,27 @@ export default function TeamManagement() {
     if (loading) return <LoadingSpinner />;
 
     return (
-        <div>
-            <div className="sm:flex sm:items-center justify-between mb-6">
-                <h1 className="text-2xl font-bold text-gray-900">Team Management</h1>
-                <button
-                    onClick={() => setModalOpen(true)}
-                    className="mt-3 sm:mt-0 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-secondary hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary"
-                >
-                    <Plus className="mr-2 h-4 w-4" /> Register Team
-                </button>
+        <div className="space-y-6">
+            {/* Header Section */}
+            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-sm border border-secondary/20">
+                <div className="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/50 to-secondary"></div>
+
+                <div className="relative flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                        <h1 className="text-2xl font-bold text-gray-900">Team Management</h1>
+                        <p className="mt-1 text-sm text-gray-500">Manage participating teams and their credentials</p>
+                    </div>
+                    <button
+                        onClick={() => setModalOpen(true)}
+                        className="inline-flex items-center px-4 py-2 border border-secondary/50 rounded-lg shadow-sm text-sm font-bold text-black bg-secondary hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary transition-all duration-200 transform hover:scale-105"
+                    >
+                        <Plus className="mr-2 h-4 w-4" /> Register Team
+                    </button>
+                </div>
             </div>
 
-            <div className="bg-white shadow rounded-xl border border-gray-200 overflow-hidden">
+            <div className="bg-white shadow-lg shadow-secondary/5 rounded-xl border border-secondary/20 overflow-hidden">
                 <Table columns={columns} data={teams} keyField="_id" />
             </div>
 
@@ -153,7 +162,7 @@ export default function TeamManagement() {
                             required
                             value={formData.name}
                             onChange={e => setFormData({ ...formData, name: e.target.value })}
-                            className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
+                            className="mt-1 block w-full bg-white border border-secondary/30 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
                         />
                     </div>
 
@@ -163,7 +172,7 @@ export default function TeamManagement() {
                             required
                             value={formData.leaderName}
                             onChange={e => setFormData({ ...formData, leaderName: e.target.value })}
-                            className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
+                            className="mt-1 block w-full bg-white border border-secondary/30 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
                         />
                     </div>
 
@@ -173,7 +182,7 @@ export default function TeamManagement() {
                             required
                             value={formData.theme}
                             onChange={e => setFormData({ ...formData, theme: e.target.value })}
-                            className="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
+                            className="mt-1 block w-full bg-white border border-secondary/30 rounded-md shadow-sm py-2 px-3 text-gray-900 focus:outline-none focus:ring-secondary focus:border-secondary sm:text-sm"
                         >
                             <option value="" className="bg-white">Select Theme</option>
                             {themes.map(t => (
@@ -182,13 +191,13 @@ export default function TeamManagement() {
                         </select>
                     </div>
 
-                    <div className="bg-gray-50 p-3 rounded-md border border-gray-200">
+                    <div className="bg-secondary/5 p-3 rounded-md border border-secondary/20">
                         <div className="flex justify-between items-center mb-2">
-                            <span className="text-xs font-semibold text-gray-500 uppercase">Credentials</span>
+                            <span className="text-xs font-bold text-gray-700 uppercase tracking-wide">Credentials</span>
                             <button
                                 type="button"
                                 onClick={handleGenerateValues}
-                                className="text-xs text-secondary hover:text-secondary/80 flex items-center"
+                                className="text-xs font-medium text-black bg-secondary px-2 py-1 rounded hover:bg-secondary/80 flex items-center transition-colors"
                             >
                                 <UserPlus size={12} className="mr-1" /> Generate
                             </button>
@@ -197,11 +206,11 @@ export default function TeamManagement() {
                             <div className="grid grid-cols-2 gap-2 text-sm">
                                 <div>
                                     <span className="block text-gray-500 text-xs">Username</span>
-                                    <span className="font-mono text-gray-900">{generatedCreds.username}</span>
+                                    <span className="font-mono text-gray-900 font-bold">{generatedCreds.username}</span>
                                 </div>
                                 <div>
                                     <span className="block text-gray-500 text-xs">Initial Password</span>
-                                    <span className="font-mono text-gray-700">Same as username</span>
+                                    <span className="font-mono text-gray-700">{generatedCreds.password}</span>
                                 </div>
                             </div>
                         ) : (
@@ -212,9 +221,9 @@ export default function TeamManagement() {
                     <div className="mt-5 sm:mt-6">
                         <button
                             type="submit"
-                            className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-secondary text-base font-medium text-black hover:bg-secondary/90 sm:text-sm"
+                            className="w-full inline-flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-bold text-black bg-secondary hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary transition-colors"
                         >
-                            Register Team
+                            <Plus className="mr-2 h-4 w-4" /> Register Team
                         </button>
                     </div>
                 </form>
@@ -228,25 +237,26 @@ export default function TeamManagement() {
                 title="Team Registered Successfully"
             >
                 <div>
-                    <div className="bg-green-50 p-4 rounded-md border border-green-200 mb-4">
-                        <p className="text-green-800 text-sm font-medium mb-2">
+                    <div className="bg-secondary/5 p-4 rounded-md border border-secondary/20 mb-4 relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+                        <p className="text-gray-900 text-sm font-bold mb-2">
                             Please save these credentials securely. They will not be shown again.
                         </p>
-                        <div className="space-y-2 font-mono text-sm">
-                            <div className="flex justify-between">
-                                <span className="text-gray-500">Username:</span>
-                                <span className="font-bold text-gray-900 select-all">{successCreds?.username}</span>
+                        <div className="space-y-2 font-mono text-sm bg-white p-3 rounded border border-secondary/20 shadow-sm">
+                            <div className="flex justify-between items-center">
+                                <span className="text-gray-500 text-xs uppercase tracking-wider">Username</span>
+                                <span className="font-bold text-gray-900 select-all bg-secondary/10 px-2 py-0.5 rounded border border-secondary/10">{successCreds?.username}</span>
                             </div>
-                            <div className="flex justify-between">
-                                <span className="text-gray-500">Password (initial):</span>
-                                <span className="font-bold text-gray-900 select-all">{successCreds?.password}</span>
+                            <div className="flex justify-between items-center">
+                                <span className="text-gray-500 text-xs uppercase tracking-wider">Password (initial)</span>
+                                <span className="font-bold text-gray-900 select-all bg-secondary/10 px-2 py-0.5 rounded border border-secondary/10">{successCreds?.password}</span>
                             </div>
-                            <p className="text-xs text-gray-500 mt-2">They must change password on first login.</p>
+                            <p className="text-xs text-gray-500 mt-2 italic border-t border-secondary/10 pt-2">User must change password on first login.</p>
                         </div>
                     </div>
                     <button
                         onClick={() => setSuccessModalOpen(false)}
-                        className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-secondary text-base font-medium text-black hover:bg-secondary/90 sm:text-sm"
+                        className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-secondary text-base font-bold text-black hover:bg-secondary/90 sm:text-sm"
                     >
                         Close
                     </button>
@@ -267,14 +277,14 @@ export default function TeamManagement() {
                         <button
                             type="button"
                             onClick={() => { setDeleteConfirmOpen(false); setTeamToDelete(null); }}
-                            className="flex-1 px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+                            className="flex-1 px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 font-medium"
                         >
                             Cancel
                         </button>
                         <button
                             type="button"
                             onClick={handleDeleteConfirm}
-                            className="flex-1 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
+                            className="flex-1 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 font-bold shadow-sm"
                         >
                             Delete Team
                         </button>

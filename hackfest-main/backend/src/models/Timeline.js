@@ -12,13 +12,12 @@ const timelineSchema = new mongoose.Schema({
     },
     to: {
         type: Date,
-        required: [true, 'End time is required'],
-        validate: {
-            validator: function (value) {
-                return value > this.from;
-            },
-            message: 'End time must be after start time'
-        }
+        required: [true, 'End time is required']
+    },
+    type: {
+        type: String,
+        enum: ['GENERAL', 'DEV', 'EVALUATION', 'BREAK', 'FINAL'],
+        default: 'GENERAL'
     }
 }, {
     timestamps: true

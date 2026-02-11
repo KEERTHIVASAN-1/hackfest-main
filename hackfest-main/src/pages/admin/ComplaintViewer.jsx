@@ -40,7 +40,7 @@ export default function ComplaintViewer() {
             key: 'status',
             header: 'Status',
             render: (row) => (
-                <span className={`inline-flex px-2 py-0.5 rounded text-xs font-medium ${row.status === 'RESOLVED' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>
+                <span className={`inline-flex px-2 py-0.5 rounded text-xs font-bold border ${row.status === 'RESOLVED' ? 'bg-green-50 text-green-700 border-green-200' : 'bg-secondary/20 text-black border-secondary/30'}`}>
                     {row.status || 'PENDING'}
                 </span>
             )
@@ -55,17 +55,27 @@ export default function ComplaintViewer() {
     if (loading) return <LoadingSpinner />;
 
     return (
-        <div>
-            <h1 className="text-2xl font-bold text-gray-900 mb-6">Complaint Log</h1>
+        <div className="space-y-6">
+            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-sm border border-secondary/20">
+                <div className="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/50 to-secondary"></div>
+
+                <div className="relative">
+                    <h1 className="text-2xl font-bold text-gray-900">Complaint Log</h1>
+                    <p className="mt-1 text-sm text-gray-500">Monitor and resolve team complaints</p>
+                </div>
+            </div>
 
             {complaints.length === 0 ? (
-                <div className="text-center py-12 bg-white rounded-lg border border-gray-200 shadow-sm">
-                    <AlertCircle className="mx-auto h-12 w-12 text-gray-400" />
-                    <h3 className="mt-2 text-sm font-medium text-gray-900">No complaints</h3>
+                <div className="text-center py-12 bg-white rounded-xl border border-secondary/20 shadow-lg shadow-secondary/5">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary/10 mb-4">
+                        <AlertCircle className="h-8 w-8 text-secondary" />
+                    </div>
+                    <h3 className="mt-2 text-sm font-bold text-gray-900">No complaints</h3>
                     <p className="mt-1 text-sm text-gray-500">Everything seems to be running smoothly!</p>
                 </div>
             ) : (
-                <div className="bg-white shadow rounded-xl border border-gray-200 overflow-hidden">
+                <div className="bg-white shadow-lg shadow-secondary/5 rounded-xl border border-secondary/20 overflow-hidden">
                     <Table columns={columns} data={complaints} keyField="_id" />
                 </div>
             )}

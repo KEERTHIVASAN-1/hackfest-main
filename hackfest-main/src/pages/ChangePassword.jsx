@@ -52,9 +52,18 @@ export default function ChangePassword() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-            <div className="sm:mx-auto sm:w-full sm:max-w-md">
-                <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
+            {/* Background decoration */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
+
+            <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10">
+                <div className="flex justify-center mb-6">
+                    <div className="p-3 bg-secondary/10 rounded-full">
+                        <Lock className="h-8 w-8 text-secondary" />
+                    </div>
+                </div>
+                <h2 className="mt-2 text-center text-3xl font-extrabold text-gray-900">
                     Change Password
                 </h2>
                 <p className="mt-2 text-center text-sm text-gray-600">
@@ -62,8 +71,10 @@ export default function ChangePassword() {
                 </p>
             </div>
 
-            <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-                <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+            <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md relative z-10">
+                <div className="bg-white py-8 px-4 shadow-xl shadow-secondary/5 border border-secondary/20 sm:rounded-lg sm:px-10 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/50 to-secondary"></div>
+                    
                     <form className="space-y-6" onSubmit={handleSubmit}>
                         <div>
                             <label htmlFor="currentPassword" className="block text-sm font-medium text-gray-700">
@@ -113,7 +124,7 @@ export default function ChangePassword() {
                         </div>
 
                         {error && (
-                            <div className="rounded-md bg-red-50 p-4">
+                            <div className="rounded-md bg-red-50 p-4 border border-red-200">
                                 <div className="flex">
                                     <div className="ml-3">
                                         <h3 className="text-sm font-medium text-red-800">{error}</h3>
@@ -126,7 +137,7 @@ export default function ChangePassword() {
                             <button
                                 type="submit"
                                 disabled={isLoading}
-                                className="flex w-full justify-center rounded-md border border-transparent bg-secondary py-2 px-4 text-sm font-medium text-black shadow-sm hover:bg-secondary-dark focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 disabled:opacity-50"
+                                className="flex w-full justify-center rounded-md border border-transparent bg-secondary py-2 px-4 text-sm font-medium text-black shadow-sm hover:bg-white hover:text-secondary hover:border-secondary transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 disabled:opacity-50"
                             >
                                 {isLoading ? 'Updating...' : 'Update Password'}
                             </button>

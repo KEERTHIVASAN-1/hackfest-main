@@ -140,25 +140,29 @@ export default function CredentialDownload() {
 
     return (
         <div className="space-y-8">
-            <div>
-                <h1 className="text-2xl font-bold text-gray-900 mb-4">Credential Distribution</h1>
-                <p className="text-gray-500">Download and print credentials for teams and judges.</p>
+            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-sm border border-secondary/20">
+                <div className="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/50 to-secondary"></div>
+                <div className="relative">
+                    <h1 className="text-2xl font-bold text-gray-900">Credential Distribution</h1>
+                    <p className="mt-1 text-sm text-gray-500">Download and print credentials for teams and judges.</p>
+                </div>
             </div>
 
             {/* Teams Section */}
-            <div className="bg-white shadow-sm rounded-xl border border-gray-200 p-6">
+            <div className="bg-white shadow-lg shadow-secondary/5 rounded-xl border border-secondary/20 p-6">
                 <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-lg font-medium text-gray-900">Teams</h2>
+                    <h2 className="text-lg font-bold text-gray-900">Teams</h2>
                     <div className="space-x-2">
                         <button
                             onClick={() => handleExport('TEAMS')}
-                            className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+                            className="inline-flex items-center px-3 py-1.5 border border-secondary/50 shadow-sm text-xs font-bold rounded text-black bg-white hover:bg-secondary/10 transition-colors"
                         >
                             <Download className="mr-1 h-3 w-3" /> CSV
                         </button>
                         <button
                             onClick={() => handleExportPDF('TEAMS')}
-                            className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+                            className="inline-flex items-center px-3 py-1.5 border border-secondary/50 shadow-sm text-xs font-bold rounded text-black bg-white hover:bg-secondary/10 transition-colors"
                         >
                             <FileText className="mr-1 h-3 w-3" /> PDF
                         </button>
@@ -190,19 +194,19 @@ export default function CredentialDownload() {
             </div>
 
             {/* Judges Section */}
-            <div className="bg-white shadow-sm rounded-xl border border-gray-200 p-6">
+            <div className="bg-white shadow-lg shadow-secondary/5 rounded-xl border border-secondary/20 p-6">
                 <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-lg font-medium text-gray-900">Judges</h2>
+                    <h2 className="text-lg font-bold text-gray-900">Judges</h2>
                     <div className="space-x-2">
                         <button
                             onClick={() => handleExport('JUDGES')}
-                            className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+                            className="inline-flex items-center px-3 py-1.5 border border-secondary/50 shadow-sm text-xs font-bold rounded text-black bg-white hover:bg-secondary/10 transition-colors"
                         >
                             <Download className="mr-1 h-3 w-3" /> CSV
                         </button>
                         <button
                             onClick={() => handleExportPDF('JUDGES')}
-                            className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+                            className="inline-flex items-center px-3 py-1.5 border border-secondary/50 shadow-sm text-xs font-bold rounded text-black bg-white hover:bg-secondary/10 transition-colors"
                         >
                             <FileText className="mr-1 h-3 w-3" /> PDF
                         </button>

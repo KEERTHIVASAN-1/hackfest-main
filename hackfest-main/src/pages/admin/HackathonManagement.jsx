@@ -86,14 +86,18 @@ export default function HackathonManagement() {
 
     return (
         <div className="max-w-4xl mx-auto space-y-8">
-            <div className="flex items-center justify-between border-b border-gray-200 pb-6">
-                <div>
-                    <h1 className="text-3xl font-bold text-gray-900 tracking-wide">Hackathon Configuration</h1>
+            <div className="relative overflow-hidden rounded-xl bg-white p-6 shadow-sm border border-secondary/20">
+                <div className="absolute top-0 right-0 -mt-4 -mr-4 w-32 h-32 bg-secondary/10 rounded-full blur-3xl"></div>
+                <div className="relative z-10">
+                    <h1 className="text-3xl font-bold text-gray-900 tracking-wide">
+                        Hackathon Configuration <span className="text-secondary ml-2">⚙️</span>
+                    </h1>
                     <p className="mt-2 text-gray-500">Manage the core settings and schedule of the event.</p>
                 </div>
             </div>
 
-            <div className="bg-white shadow rounded-xl border border-gray-200 p-8">
+            <div className="bg-white shadow-lg shadow-secondary/5 rounded-xl border border-secondary/20 p-8 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-secondary/50 to-secondary"></div>
                 <form onSubmit={handleSubmit} className="space-y-8">
 
                     <div className="grid grid-cols-1 gap-y-6 gap-x-4">
@@ -105,7 +109,7 @@ export default function HackathonManagement() {
                                 required
                                 value={formData.name}
                                 onChange={handleChange}
-                                className="block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm p-3 transition-colors duration-200"
+                                className="block w-full rounded-lg border-secondary/20 bg-white text-gray-900 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm p-3 transition-colors duration-200"
                                 placeholder="Enter hackathon name..."
                             />
                             <p className="mt-2 text-sm text-gray-500">Official name of the event.</p>
@@ -119,7 +123,7 @@ export default function HackathonManagement() {
                                 required
                                 value={formData.description}
                                 onChange={handleChange}
-                                className="block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm p-3 transition-colors duration-200"
+                                className="block w-full rounded-lg border-secondary/20 bg-white text-gray-900 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm p-3 transition-colors duration-200"
                                 placeholder="Brief overview for participants..."
                             />
                             <p className="mt-2 text-sm text-gray-500">Brief overview displayed to participants.</p>
@@ -135,7 +139,7 @@ export default function HackathonManagement() {
                                 required
                                 value={formData.startDate}
                                 onChange={handleChange}
-                                className="block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm p-3 transition-colors duration-200"
+                                className="block w-full rounded-lg border-secondary/20 bg-white text-gray-900 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm p-3 transition-colors duration-200"
                             />
                         </div>
 
@@ -147,12 +151,12 @@ export default function HackathonManagement() {
                                 required
                                 value={formData.endDate}
                                 onChange={handleChange}
-                                className="block w-full rounded-lg border-gray-300 bg-white text-gray-900 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm p-3 transition-colors duration-200"
+                                className="block w-full rounded-lg border-secondary/20 bg-white text-gray-900 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm p-3 transition-colors duration-200"
                             />
                         </div>
                     </div>
 
-                    <div className="pt-6 border-t border-gray-200">
+                    <div className="pt-6 border-t border-secondary/10">
                         <div className="flex items-center justify-between">
                             <span className="text-sm text-gray-500">
                                 Note: Changing duration affects the valid range for timeline slots.
@@ -163,7 +167,7 @@ export default function HackathonManagement() {
                                     type="button"
                                     onClick={handleDelete}
                                     disabled={isSaving || isDeleting}
-                                    className="inline-flex items-center px-4 py-3 border border-red-300 rounded-lg shadow-sm text-sm font-bold text-red-700 bg-white hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-50 transition-all duration-200"
+                                    className="inline-flex items-center px-4 py-3 border border-red-200 rounded-lg shadow-sm text-sm font-bold text-red-700 bg-white hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-50 transition-all duration-200"
                                 >
                                     <Trash2 className="mr-2 h-4 w-4" />
                                     {isDeleting ? 'Deleting...' : 'Reset Event'}
@@ -172,7 +176,7 @@ export default function HackathonManagement() {
                                 <button
                                     type="submit"
                                     disabled={isSaving || isDeleting}
-                                    className="inline-flex items-center px-6 py-3 border border-transparent rounded-lg shadow-sm text-sm font-bold text-black bg-secondary hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-secondary disabled:opacity-50 transition-all duration-200 transform hover:scale-[1.02]"
+                                    className="inline-flex items-center px-6 py-3 border border-secondary/50 rounded-lg shadow-sm text-sm font-bold text-black bg-secondary hover:bg-secondary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary disabled:opacity-50 transition-all duration-200 transform hover:scale-[1.02]"
                                 >
                                     <Save className="mr-2 h-4 w-4" />
                                     {isSaving ? 'Saving...' : 'Save Configuration'}
@@ -188,11 +192,11 @@ export default function HackathonManagement() {
                 </form>
             </div>
 
-            <div className="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg">
+            <div className="bg-secondary/5 border-l-4 border-secondary p-6 rounded-r-lg shadow-sm">
                 <div className="flex">
                     <div className="ml-3">
-                        <h3 className="text-sm font-bold text-blue-800">System Behavior</h3>
-                        <div className="mt-2 text-sm text-blue-700">
+                        <h3 className="text-sm font-bold text-gray-900">System Behavior</h3>
+                        <div className="mt-2 text-sm text-gray-700">
                             <p>
                                 The number of rounds is fixed to 3 (Round 1, Round 2, and Final Round).
                                 Once the hackathon starts, changing dates might cause inconsistencies in the timeline.
