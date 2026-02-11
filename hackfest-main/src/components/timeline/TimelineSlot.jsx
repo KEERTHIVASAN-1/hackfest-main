@@ -54,9 +54,9 @@ export default function TimelineSlot({ slot, isActive }) {
                 <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                     <h3
                         className={clsx(
-                            'font-bold text-base',
+                            'font-bold text-base transition-all duration-300',
                             isActive && 'text-gray-900',
-                            isCompleted && 'text-gray-500 line-through decoration-primary/40',
+                            isCompleted && 'text-gray-400 line-through decoration-black decoration-[3px] underline-offset-4',
                             isUpcoming && 'text-gray-700'
                         )}
                     >
