@@ -52,7 +52,7 @@ export default function AIChatBot() {
         <button
           aria-label="Open AI chat"
           onClick={toggleOpen}
-          className="relative h-24 w-24 rounded-full bg-primary/70 border-2  border-primary/600 shadow-lg overflow-hidden flex items-center justify-center"
+          className="relative h-24 w-24 rounded-full bg-primary/30 border-2  border-amber-700 shadow-lg overflow-hidden flex items-center justify-center"
         >
           <span className="absolute top-1 left-1/2 -translate-x-1/2 text-xs font-bold text-gray-800 bg-white/80 px-2 py-0.5 rounded-md border border-gray-200 shadow-sm">
             AI
