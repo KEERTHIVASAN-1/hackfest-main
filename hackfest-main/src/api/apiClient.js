@@ -1,4 +1,8 @@
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
+const PROD_BASE_URL = 'https://hackfest-main-3.onrender.com/api';
+const DEV_BASE_URL = 'http://localhost:5000/api';
+const BASE_URL =
+    import.meta.env.VITE_API_BASE_URL ||
+    (import.meta.env.PROD ? PROD_BASE_URL : DEV_BASE_URL);
 
 /**
  * Generic API client wrapper for Fetch API

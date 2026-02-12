@@ -25,10 +25,16 @@ const app = express();
 // CORS configuration
 const corsOptions = {
     origin: function (origin, callback) {
+        const dynamicOrigins = (process.env.CORS_ORIGINS || '')
+            .split(',')
+            .map(o => o.trim())
+            .filter(Boolean);
         const allowedOrigins = [
             'http://localhost:5173',
             'http://localhost:3000',
-            process.env.FRONTEND_URL
+            'https://hackfest-main.vercel.app',
+            process.env.FRONTEND_URL,
+            ...dynamicOrigins
         ].filter(Boolean);
 
         // Allow requests with no origin (like mobile apps or curl requests)
