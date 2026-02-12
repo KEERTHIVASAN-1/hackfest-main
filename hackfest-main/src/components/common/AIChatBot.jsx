@@ -48,23 +48,23 @@ export default function AIChatBot() {
 
   return (
     <>
-      <div className="fixed bottom-4 right-4 z-50">
+      <div className="fixed bottom-2 right-2 sm:bottom-4 sm:right-4 z-50">
         <button
           aria-label="Open AI chat"
           onClick={toggleOpen}
-          className="relative h-24 w-24 rounded-full bg-primary/30 border-2  border-amber-700 shadow-lg overflow-hidden flex items-center justify-center"
+          className="relative h-16 w-16 sm:h-24 sm:w-24 rounded-full bg-primary/30 border-2  border-amber-700 shadow-lg overflow-hidden flex items-center justify-center"
         >
           <span className="absolute top-1 left-1/2 -translate-x-1/2 text-xs font-bold text-gray-800 bg-white/80 px-2 py-0.5 rounded-md border border-gray-200 shadow-sm">
             AI
           </span>
-          <div className="mt-3 pointer-events-none">
+          <div className="mt-2 sm:mt-3 pointer-events-none">
             <GrootChatIcon />
           </div>
         </button>
       </div>
 
       {open && (
-        <div className="fixed bottom-20 right-4 z-50 w-[90vw] sm:w-96 bg-white border border-gray-200 rounded-xl shadow-2xl">
+        <div className="fixed bottom-20 right-2 sm:right-4 z-50 w-[94vw] sm:w-96 bg-white border border-gray-200 rounded-xl shadow-2xl">
           <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200">
             <div className="flex items-center gap-2">
               <span className="font-bold text-gray-900">HackFest AI</span>
@@ -78,11 +78,11 @@ export default function AIChatBot() {
             </button>
           </div>
 
-          <div className="max-h-[60vh] overflow-y-auto p-4 space-y-3">
+          <div className="max-h-[60vh] overflow-y-auto p-3 sm:p-4 space-y-2 sm:space-y-3">
             {messages.map((m, idx) => (
               <div key={idx} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div
-                  className={`px-3 py-2 rounded-lg max-w-[75%] text-sm shadow-sm ${
+                  className={`px-3 py-2 rounded-lg max-w-[85%] sm:max-w-[75%] text-sm shadow-sm ${
                     m.role === 'user'
                       ? 'bg-primary text-black'
                       : 'bg-gray-100 text-gray-900'
@@ -95,7 +95,7 @@ export default function AIChatBot() {
             <div ref={messagesEndRef} />
           </div>
 
-          <form onSubmit={handleSend} className="p-3 border-t border-gray-200">
+          <form onSubmit={handleSend} className="p-2 sm:p-3 border-t border-gray-200">
             <div className="flex gap-2">
               <input
                 type="text"

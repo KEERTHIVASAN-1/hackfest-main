@@ -100,15 +100,15 @@ export default function ParticipantLayout() {
             <div className="flex flex-1 flex-col overflow-hidden lg:ml-64">
                 <div className="lg:hidden pl-2 pt-2 sm:pl-4 sm:pt-4">
                     <button
-                        className="inline-flex h-14 w-14 items-center justify-center rounded-lg bg-white shadow-md text-gray-600 hover:text-gray-900 hover:bg-white focus:outline-none focus:ring-2 focus:ring-primary"
+                        className="inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-lg bg-white shadow-md text-gray-600 hover:text-gray-900 hover:bg-white focus:outline-none focus:ring-2 focus:ring-primary"
                         onClick={() => setSidebarOpen(true)}
                     >
                         <span className="sr-only">Open sidebar</span>
-                        <Menu size={32} />
+                        <Menu size={28} className="sm:w-8 sm:h-8" />
                     </button>
                 </div>
 
-                <main className="flex-1 overflow-y-auto focus:outline-none p-6">
+                <main className="flex-1 overflow-y-auto focus:outline-none p-4 sm:p-6">
                     <Outlet />
                 </main>
             </div>
@@ -116,6 +116,5 @@ export default function ParticipantLayout() {
         </div>
     );
 }
-
 
 
