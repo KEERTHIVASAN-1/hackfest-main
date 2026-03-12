@@ -98,6 +98,31 @@ export const apiClient = {
     },
 
     /**
+     * POST Multipart request (for file uploads)
+     */
+    postMultipart: async (endpoint, formData) => {
+        try {
+            console.log('POST Multipart Request:', `${BASE_URL}${endpoint}`);
+            const headers = {};
+            const token = localStorage.getItem('hackfest_token');
+            if (token) {
+                headers['Authorization'] = `Bearer ${token}`;
+            }
+            // Note: Don't set Content-Type, browser will handle it for FormData
+
+            const response = await fetch(`${BASE_URL}${endpoint}`, {
+                method: 'POST',
+                headers,
+                body: formData,
+            });
+            return apiClient.handleResponse(response);
+        } catch (error) {
+            console.error('POST Multipart Request Failed:', error);
+            throw error;
+        }
+    },
+
+    /**
      * DELETE request
      */
     delete: async (endpoint) => {
